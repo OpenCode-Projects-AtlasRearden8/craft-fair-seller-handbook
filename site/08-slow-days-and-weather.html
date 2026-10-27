@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slow Days and Weather Survival — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="active" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="slow-days-and-weather-survival">Slow Days and Weather Survival</h1>
+<p>Two things happen on market days that no spreadsheet predicts: the crowd doesn't come, and the sky goes sideways. This chapter is for both — ten moves for the slow hours, a real rain plan, and the one rule that outranks both: the seller is also at the event, and the seller needs lunch.</p>
+<h2 id="slow-hours-are-normal-hours">Slow hours are normal hours</h2>
+<p>Most booths — most good booths, veteran ones — sit through several ghost hours a day. Traffic comes in waves (church lets out, lunch happens, kids get bored and drag buyers past your table). A dead hour is <em>not a verdict on the booth</em>, which is worth knowing because panic-calming is one of the things that makes booths look desperate. The moves below work best when done in the order your mood needs, not all in one sitting.</p>
+<h2 id="ten-slow-hour-moves-in-the-order-that-usually-works">Ten slow-hour moves (in the order that usually works)</h2>
+<ol>
+<li><strong>Straighten the table like a neighbor is coming.</strong> Hands busy, brain kind. Tap in a stray item, re-fold a cloth corner. Motion without hovering.</li>
+<li><strong>Walk your own booth as a visitor.</strong> Step ten feet out. Squint prices. What's missing? What's buried? Fix one thing.</li>
+<li>**Craft or restock <em>visible hands</em>.** A visible hand at work (folding, carving, packing, sorting) is a demonstration and a conversation opener. This is the oldest market trick: watching someone make the thing <em>is the ad</em>.</li>
+<li><strong>Greet the browsers with a sentence, not a pitch.</strong> "Feel free to pick them up — they're hand-poured." One line, then zero hovering. The hover is the fast way to lose someone who was interested.</li>
+<li><strong>Chat with the booth across the aisle</strong> when it's calm. Trade business cards, mention you liked their display, swap the local knowledge (which events they did, what died this year). Slow hours build most of a vendor's future event intel.</li>
+<li><strong>Give the table a small refresh.</strong> Move the hero display two inches taller, rotate the front row, retape a price card. Movement catches ten-second glances; solidity reads as closed.</li>
+<li><strong>Ask the organizer for data.</strong> "How's the day looking?" gets you honest information (some shows have <em>waves</em> — a stage act at 2 p.m. means you staff up then, not now).</li>
+<li><strong>Offer one planned gesture, only if you planned it.</strong> "Last hour, gift wrap free" — something you decided at <a href="09-after-event-review.html">review time</a> last event, not a 2:30 p.m. panic discount. Panic discounts teach buyers to shop at 2:30 p.m.</li>
+<li><strong>Tend yourself.</strong> Water, snack, stretch, sunscreen after sunrise hours, layers when it cools. An un-tended seller starts making sloppy money moves (see <a href="04-pricing-and-making-change.html">pricing</a>).</li>
+<li><strong>Write one line in the tally sheet.</strong> "Dead till 1:30, then wave." By the <a href="09-after-event-review.html">after-event review</a> that line becomes a booking argument for the calendar; in the moment it's just honest handwriting.</li>
+</ol>
+<p>And the mental note that resets the day: <strong>you already accounted for slow hours in restock math and the event scorecard.</strong> The day was never going to be nine hours of sales; the <a href="07-restock-math.html">bring-formula</a> just doesn't care about your noon feelings.</p>
+<h2 id="weather-the-canopy-becomes-a-tent">Weather: the canopy becomes a tent</h2>
+<p>The one upgrade that turns weather from an event-killer into a hassle: treat the canopy as a <strong>weather machine</strong> with a floor, a wall, and a roof that works:</p>
+<ul>
+<li><strong>Weights at all four legs — before setup finishes.</strong> This is the only life-safety note in the whole book: a weighted canopy in real wind is a tent; an unweighted one is a hazard. (Kits and free water-jug versions in <a href="03-booth-setup-on-a-budget.html">booth setup</a>.)</li>
+<li><strong>Sidewalls on the weather side</strong>, one or two is plenty. Zip ties, <a href="glossary.html">bungees</a>. On rain days, the windward <a href="glossary.html">sidewall</a> keeps both the product and the customers dry-ish.</li>
+<li><strong>A gutter move for sudden rain:</strong> two canopies slightly offset share the seam; <em>one</em> canopy alone: lower the back two legs a couple of inches so water runs off backward instead of pooling. (Pool-over-collapse is the real rain risk; keep the roof angled.)</li>
+<li><strong>Never raise or drop a canopy mid-gust.</strong> Take product off <em>first</em>, drop the <strong>two side legs first</strong> with someone holding the frame, and only then touch the middle. Wind is the same fight at 10 a.m. and 3 p.m.: patience beats strength.</li>
+<li><strong>Indoor event rain risk is mostly comfort:</strong> if the fair is inside, rain mostly means <em>fewer</em> shoppers; the carry-rain-gear items below keep your stock dry <em>between</em> car and hall.</li>
+</ul>
+<h2 id="the-wet-weather-kit-put-it-in-tote-1">The wet-weather kit (put it in Tote 1)</h2>
+<ul>
+<li>Rain covers or a tarp for the product table (a shower-curtain liner works and costs $5)</li>
+<li>One towel for the cloth-to-metal (canopy poles weep in real rain — yes, really)</li>
+<li>Ziplock bags for anything paper (price tags, cash, business cards, the <a href="06-honest-sales-tracking.html">tally sheet</a>)</li>
+<li>The good shoes. Dry socks. The seller's feet are the forgotten PPE of markets.</li>
+<li>A <strong>wind plan for the light stuff</strong>: paper tags fly at gust #3; nudging them into clothespins-on-string stops that before it begins.</li>
+</ul>
+<h2 id="the-gono-go-call-before-you-leave-the-house">The go/no-go call (before you leave the house)</h2>
+<p>The <a href="02-applications-and-permits.html">vendor contract</a> you signed in chapter 2 answers most of this: read it again, because the refund-rain rule is usually in there. Then:</p>
+<ol>
+<li><strong>What does the event do?</strong> (Cancel, delay, shelter-in-place, "the show goes on.") Most organizers decide by loading time, and honest ones reply by 6 a.m.</li>
+<li><strong>What's the actual forecast risk?</strong> If your buyer crowd won't come ("the act canceled, the trail race called it"), even a dry canopy is a slow day — see the <a href="#ten-slow-hour-moves-in-the-order-that-usually-works">slow-hour moves</a>.</li>
+<li><strong>Is your booth weather-rated?</strong> A $60 pop-up with no walls is not the same machine as a $400 show shelter with sidewalls. Grade your canopy honestly before deciding.</li>
+<li><strong>Go/no-go is a phone call, not a debate.</strong> "Is the show still on? My kit and I are deciding at 5:30." Do not drive weather-tests at 5 a.m. with a loaded van and no answer; call, wait, then decide.</li>
+</ol>
+<p>A no-go that <em>saved</em> a day's drive and the stock from a drowned booth is a money-profile event, and the <a href="09-after-event-review.html">after-event review</a> loves one.</p>
+<h2 id="rain-day-economics-in-round-numbers">Rain-day economics, in round numbers</h2>
+<p>If it looks like a washout and the event goes on anyway, your options with a booth: <strong>show up with the covered kit and eat the slow day (which is not free — goods you didn't sell at a washout can still be listed online, resold-book-style, and the day's fee is sunk anyway)</strong>, or <strong>stay home and eat the booth fee</strong>. The math:</p>
+<ul>
+<li>Show up: booth fee spent + a small chance of real rain-period sales, with risk of rain-damage to stock you didn't cover.</li>
+<li>Stay home: fee spent, stock dry, the day gets used for making, listing, and <em>rest</em> — which a season of back-to-back events might honestly need.</li>
+</ul>
+<p>Round honest answer: <strong>a prepared booth wins more often than a bailed day</strong>, but if the forecast is a genuine storm (not rain), the tent loses, and the fee is tuition you don't pay twice. A <a href="event-scorecards.html">wet go/no-go rule</a> that you write <em>before</em> the season is how you make each wet call with less stress.</p>
+<p>The no-secret coda: please actually eat breakfast. The rain-day buyer who <em>does</em> appear deserves a warm hello, and needs the seller fed and rested too. That's all of it — the show goes on, and you go on with it.</p>
+<hr>
+<p>Next: the day's wrapped and the boxes are in. Now, while it's fresh: the review ritual.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="07-restock-math.html"><span class="dir">Previous</span>Restock Math</a>
+      <a class="next" href="09-after-event-review.html"><span class="dir">Next</span>After-Event Review</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

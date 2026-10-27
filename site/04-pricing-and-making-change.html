@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing and Making Change — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="active" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="pricing-and-making-change">Pricing and Making Change</h1>
+<p>Pricing at a market is a different game from pricing at a thrift store: prices are seen in two seconds, paid in ten, and rounded in people's heads. This chapter gets you round numbers, a change box that can't jam you, and the two-hop cash dance that keeps the till honest.</p>
+<h2 id="cost-price-and-the-three-layer-floor">Cost, price, and the three-layer floor</h2>
+<p>Before rounding anything, know your floor. The honest version, in one line:</p>
+<blockquote><p><strong>price = materials + your labor + your share of the show + a real margin</strong></p></blockquote>
+<table><thead><tr><th>Layer</th><th>What it means</th><th>Example (a candle)</th></tr></thead><tbody><tr><td>Materials</td><td>Wax, wick, jar, label, lid</td><td>$4</td></tr><tr><td>Labor</td><td>An honest hourly rate, however small</td><td>$6 (1 hour at $6, or 20 min at $18)</td></tr><tr><td>Show share</td><td>Fee, sales tax, reader fee, spread across what you bring</td><td>about $3</td></tr><tr><td><strong>Floor</strong></td><td>Below this, you're paying people to buy</td><td><strong>$13</strong></td></tr><tr><td><strong>Marked price</strong></td><td>What the tag says, in a round number</td><td><strong>$15</strong></td></tr></tbody></table>
+<p>The floor isn't a wishing number — it's arithmetic you can re-derive with a <a href="06-honest-sales-tracking.html">records sheet</a>. Everything above the floor is your gross margin; over a season, <em>that</em> is the number that pays you back for the canopy in <a href="03-booth-setup-on-a-budget.html">booth setup</a>.</p>
+<p>If you're reselling bought goods rather than making them, the same floor works: materials = what you paid; labor = list, tag, and pack time; show share = your per-event cost divided by stock. The reseller handbook calls the same idea the <em>walk-away floor</em> — different aisle, same shelf.</p>
+<h2 id="round-numbers-win-at-markets">Round numbers win at markets</h2>
+<p>At a thrift store you can sell a clock for $24.99. At a market, <strong>round prices in ones and fives win</strong>, because:</p>
+<ul>
+<li>shoppers quote prices to each other ("they're $15 — want one?")</li>
+<li>the making-change math stays in your head</li>
+<li>$15 <em>reads</em> friendlier than $14.25 from four feet away, and psychic discounting ("it looks cheap") is done by the customer, not you.</li>
+</ul>
+<p>The easy rounding ladder: <strong>$5 / $10 / $15 / $20 / $25 / $30 / $40 / $50.</strong> Anything that should be $12 becomes $10 (judge volume) or $15 (judge margin). Anything that should be $8 becomes $10 — and yes, that is a small raise; markets forgive a rounded-up tag far more readily than they forgive a tag you have to think about.</p>
+<h2 id="the-three-price-raft">The three-price raft</h2>
+<p>Put your whole table on a three-price raft and most browsers can read your entire booth in one glance:</p>
+<ul>
+<li><strong>Small ($5-$10)</strong> — the impulse tier: minis, seconds, single items.</li>
+<li><strong>Medium ($15-$25)</strong> — your main product line.</li>
+<li><strong>Large ($30-$60)</strong> — gift sets, bundles, or the flagship piece.</li>
+</ul>
+<p>One price sign per raft does more work than sixteen individual tags: "MINIS $5 / MEDIUM CANDLES $15 / GIFT BUNDLES $30". Individual tags <em>still</em> happen, but the raft sign means nobody squints.</p>
+<h2 id="bundles-and-multiples-the-polite-upsell">Bundles and multiples (the polite upsell)</h2>
+<p>Markets reward small bulk prices more than online shops do, because the buyer is <em>right there</em> holding two of them:</p>
+<ul>
+<li><strong>"Two for discount"</strong> — 1 for $10, 2 for $18, 3 for $25. Make sure the math is easy at a glance.</li>
+<li><strong>Bordered sets</strong> ("gift box") that you price as one item, at a round $25.</li>
+<li><strong>Cards with "3 for" multiples</strong> printed to sit next to the single prices.</li>
+</ul>
+<p>The polite version never <em>pushes</em>; it just shows the arithmetic and lets the customer price-shop themselves up. Honesty note: if a multiple price is truly identical to singles (2 for $20 = 2 x $10) — fine, but then say "same price either way" and save everyone the suspicion.</p>
+<h2 id="sales-tax-at-the-booth-the-plain-english-version">Sales tax at the booth (the plain-English version)</h2>
+<p>This is where the <a href="02-applications-and-permits.html">permits chapter</a> pays off, in round numbers:</p>
+<ol>
+<li><strong>Sales tax is the buyer's portion.</strong> If your state requires it (call it 5-10% in round numbers), the vendor collects it at the sale and remits it later. The practical market question is <strong>who does the arithmetic</strong> — you or the price tag.</li>
+<li><strong>Round-price approach</strong>: bake tax in. A $10 tag is "tax included"; you set aside 50-ish cents per $10 at closing, per your state's rate, and your filing is one subtraction per line at <a href="09-after-event-review.html">review time</a>. Tags that say "tax included" keep the buying conversation fast and the change-making easy.</li>
+<li><strong>Add-on approach</strong>: tags are pre-tax, and you add tax at the till. Faster for your margin math, slower for your transaction math, and it needs your rate card taped in the cash box. Some vendors solve this with a <strong>tax table</strong>: if your rate is 7%, then $5 becomes $5.35, $10 → $10.70, $15 → $16.05 — write the tax column on paper once and tape it beside the reader.</li>
+</ol>
+<p>You'll know which approach your state expects by that same one-phone-call from the <a href="02-applications-and-permits.html">permits chapter</a>. The book takes no position; the state's department of revenue has one.</p>
+<h2 id="the-starting-float">The starting float</h2>
+<p>You need small bills to make change. The standard starter float:</p>
+<ul>
+<li><strong>Ones: $40.</strong> (Two stacks of 20, banded or folded separately.)</li>
+<li><strong>Fives: $25.</strong> (Five bills.)</li>
+<li><strong>Tens: $20.</strong> (Two bills.)</li>
+<li><strong>Quarters, dimes, nickels: $10 in coins.</strong> Seldom needed, but mighty when they are; more useful when tax is added separately.</li>
+<li><strong>Total: about $85.</strong></li>
+</ul>
+<p>The float is a <em>loan from yourself to the cash box</em>, not profit. At close, the money in the box <strong>minus</strong> the float is what you made. Write the float breakdown in the cash-box lid, or better: use the paper money-kit card from the <a href="packing-checklist.html">packing checklist</a>, so you can count it out in three seconds at 10 a.m. and again at 6 p.m.</p>
+<p>Replenish mid-day only if you're <em>actually</em> running out — that decision belongs to your <a href="06-honest-sales-tracking.html">tracking sheet</a>, not to wishful "it's been a big day!" feelings.</p>
+<h2 id="the-two-hop-cash-dance">The two-hop cash dance</h2>
+<p>The till ritual that keeps money honest, in two hops:</p>
+<ol>
+<li>**Say the price aloud, and put the cash <em>visible</em> before you make change.** "That's $18 total." Set the customer's cash flat on the box/table (a "money tray" spot), <em>then</em> pull change. Never both hands around bills you haven't seen.</li>
+<li>**Change is counted <em>out to their hand</em>, in the customer's hearing.** "Out of 20: 18 → 10 and 5 and 2 and 1." Slowness is professional; haste is where over- and short-counts live.</li>
+</ol>
+<p>Why the visible hop matters: it's your step-one defense against the <strong>execute-the-switch scam</strong> — the quick-minded "wait, I gave you a <em>hundred</em>" claim, which is a real, practiced scam at busy markets. A bill that lies flat on the box with both of you having <em>seen and said twenty</em> is a bill that can't be relitigated. (More scam patterns live in the reseller book; the fake-check one applies at application time — see the <a href="01-finding-events.html">finding events chapter</a>.)</p>
+<p>The second-hop matters because it makes the <em>customer</em> your witness: change counted aloud, item by item, in their ear, is change they will vouch for. It also <em>slows you down</em>, which is the actual anti-mistake device in this entire chapter.</p>
+<h2 id="the-counterfeit-caution">The counterfeit caution</h2>
+<p>Counterfeit bills passed at small events are — statistically — rare but nonzero, and the responsibility is real. Two round moves:</p>
+<ul>
+<li><strong>Check anything $50 or bigger.</strong> Feel it; check the watermarks or security thread; if you're unsure, a simple "do you have 20s instead?" is polite and normal.</li>
+<li><strong>When in doubt, don't accuse.</strong> "Let me take a closer look" beats accusation — most fakes at fairs are fakes in the <em>passer's</em> pocket, not in the passer's <em>intent</em>; the genuine passer usually has another bill.</li>
+</ul>
+<p>If you do accept a bill you later suspect — keep it, photograph it, and your bank can tell you; dispose of nothing yourself, and never hand it <em>back</em> once you suspect. Records of the incident go in your <a href="06-honest-sales-tracking.html">tracking sheet</a> as an over/short line.</p>
+<h2 id="the-card-reader-makes-change-different">The card-reader makes change different</h2>
+<p>When you have a reader, you <em>rarely</em> make change for cards — the app rounds for you and the receipt does the bookkeeping. So your float is almost entirely a <strong>cash-only mechanic</strong>, and your <a href="05-card-readers.html">card-reader chapter</a> sets up the tap/insert flow in detail. One combined habit worth building now: <strong>say the total aloud and let the customer's method decide the next move</strong> — "That's $18 — card or cash is fine." One sentence, two lanes, no awkwardness, and it keeps the <a href="#the-two-hop-cash-dance">two-hop dance</a> in place when it's cash.</p>
+<h2 id="end-of-day-cash-count-the-whole-chapter-in-one-step">End-of-day cash count (the whole chapter in one step)</h2>
+<p>At close, <em>before</em> the box leaves the table:</p>
+<pre><code>1. Count the box by denomination:                $ ________
+2. Subtract the starting float (from the lid): − $  85.00
+3. = TAKEN. This number goes to the sheet.      $ ________
+</code></pre>
+<p>If 3 on your <a href="06-honest-sales-tracking.html">tracking sheet</a> doesn't match the reader app's card total plus the counted cash, don't nap angry — walk the two-hop dance in your memory one more time; the recount usually finds it. When it doesn't, log it as <strong><a href="glossary.html">over/short</a></strong> and watch the pattern across events. A pattern is information; a one-off is weather.</p>
+<p>Then — and this is the <em>whole</em> point — <strong>leave the event with money you can account for</strong>: float back in the box (or the set-aside tin), takings sorted, and an entry on the sheet. That's the market-day cousin of the reseller book's records-table habit, and it's honest down to the quarter.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="03-booth-setup-on-a-budget.html"><span class="dir">Previous</span>Booth on a Budget</a>
+      <a class="next" href="05-card-readers.html"><span class="dir">Next</span>Card Readers</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

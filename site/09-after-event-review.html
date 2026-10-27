@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The After-Event Review Ritual — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="active" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="the-after-event-review-ritual">The After-Event Review Ritual</h1>
+<p>The day is done, the boxes are in the hall, your feet are loud. This chapter is fifteen to thirty minutes — tonight, not next week — that converts one event's chaos into next season's decisions. It's the shortest chapter in the book and the one that compounds hardest.</p>
+<h2 id="why-tonight-and-not-ill-write-it-this-weekend">Why tonight (and not "I'll write it this weekend")</h2>
+<p>Memory decays <em>specifically</em>: 48 hours from now you will remember the sales total and forget the wave of three people who asked for blue, the guy at 11 a.m. who said your table was hard to see past, and the fact that the reader app's offline mode queued silently all afternoon. Those specifics are where the value is; the ritual is a ransom for them, paid promptly.</p>
+<h2 id="the-30-minute-ritual-in-order">The 30-minute ritual, in order</h2>
+<p>Run it at the kitchen table with the day's paper in front of you:</p>
+<ol>
+<li><strong>Close the money loop.</strong> Finish the <a href="04-pricing-and-making-change.html">end-of-day count</a> and the <a href="06-honest-sales-tracking.html">tally sheet totals</a> — cash, card, gross, refunds, costs, margin. The day is not over until the sheet's footer is filled.</li>
+<li><strong>Fill the scorecard.</strong> The <a href="event-scorecards.html">event scorecard</a> — traffic, fit, costs, neighbors, weather luck, organizer quality, the 1-5 verdict. Five minutes, at most; the numbers are still warm.</li>
+<li><strong>Answer the five review questions</strong> (one line each, written):</li>
+</ol>
+<ul>
+<li><em>What was my goal going in, and did I hit it?</em> (Money? Contacts? Photos? A new-line test? Set in <a href="01-finding-events.html">chapter 1</a>.)</li>
+<li><strong>Best seller — and why it was</strong> (placement? price raft? the demo?)</li>
+<li><strong>Worst seller — and what that means</strong> (price? placement? a <a href="glossary.html">dead stock</a> verdict?)</li>
+<li><strong>What did people ask for that I didn't have?</strong> (This is the season's actual product roadmap, one line at a time.)</li>
+<li><strong>What one change would improve the day by the most?</strong> (One only. Ten ideas is a wish list; one is a plan.)</li>
+</ul>
+<ol>
+<li><strong>Write the three lists.</strong> <em>Keep</em> (what worked — specific arrangements, prices, phrases), <em>change</em> (one thing, rolled forward), <em>stop</em> (what you'll leave in the van from now on).</li>
+<li><strong>Backup the paper.</strong> Photo the tally sheet and scorecard into your events folder; the <a href="06-honest-sales-tracking.html">weekly roll-up</a> gets its line.</li>
+<li><strong>Thank the organizer.</strong> One short message — "Thanks, good show, I'll be in touch for the next one" (or the honest version). This is 20% kindness, and it's genuinely useful next time you need a waitlist favor, a re-seating, or a reference.</li>
+<li><strong>Send the restock note to yourself.</strong> The make/buy list from <a href="07-restock-math.html">restock math</a> — anything under "truly available = 0" that you'll want for a future booking, now dated so it doesn't ambush you the week before the next event.</li>
+</ol>
+<p>That's the whole thing. Thirty minutes, pencil, done.</p>
+<h2 id="the-five-questions-in-their-natural-habitat">The five questions in their natural habitat</h2>
+<p>For the full-season view, those five answers stack neatly in one table — the honest aftermath of a year:</p>
+<table><thead><tr><th>Question</th><th>Farmers market, wk 6</th><th>Spring fair day 1</th><th>Holiday market 1</th></tr></thead><tbody><tr><td>Goal hit?</td><td>steady day (Y/N)</td><td>photos + margin (Y)</td><td>mostly (N)</td></tr><tr><td>Best seller</td><td>candles @ $15</td><td>ornament bundle</td><td>gift set</td></tr><tr><td>Why</td><td>demo visibility</td><td>first-in aisle</td><td>price raft</td></tr><tr><td>Worst</td><td>soap singles</td><td>wood squares</td><td>candle minis</td></tr><tr><td>Asked-for</td><td>blue! (3x)</td><td>lavender (2x)</td><td>larger size</td></tr><tr><td>One change</td><td>riser higher</td><td>more quilted case markup</td><td>bundle tags printed</td></tr></tbody></table>
+<p>Stack a season of rows and the <em>bookings question answers itself</em> — which is the point of filling in the columns <em>tonight</em> instead of season's end, with whole rows of faint memory.</p>
+<h2 id="rebooking-decide-before-the-invoice-arrives">Rebooking (decide before the invoice arrives)</h2>
+<p>Organizers often open next-year's registrations <em>fast</em> — sometimes the same month. You don't have to answer fast; you have to answer <em>honestly</em>, and the honest input is on your scorecard and roll-up:</p>
+<ul>
+<li><strong>Return as-is</strong> — 4-5 scorecard, margin positive, and the day's costs were on plan.</li>
+<li><strong>Return with one change</strong> — scorecard good, margin wobbly (the change list says what to change; often it's stock split or table layout, both cheap to fix).</li>
+<li><strong>Pass this year, follow the event's history</strong> — low scorecard, low margin, sad organizer community chat. Politely rebook <em>next</em> year only if the event itself changes shape (new location, new management, bigger marketing).</li>
+<li><strong>Never rebook out of guilt or momentum.</strong> The same <a href="06-honest-sales-tracking.html">review honesty</a> that steered restock steers this decision.</li>
+</ul>
+<p>Booking reply etiquette, briefly: if you <em>won't</em> return, say so politely within a week (their planning costs them real months); if you <em>will</em>, they'll thank you quickly and you'll be on the returning-vendor list ahead of the public rush.</p>
+<h2 id="the-season-level-review-once-a-year">The season-level review (once a year)</h2>
+<p>One evening a year, before the next season's bookings — the annual parent-teacher conference with your own small business:</p>
+<ol>
+<li><strong>Cost per $100 of sales, per event.</strong> (Event cost ÷ gross × 100.) A booth costing $115 that grossed $400 produces "$29 per $100" — round number, instantly comparable across events.</li>
+<li><strong>Margin by product line</strong>, across the whole year. Pays off the <a href="04-pricing-and-making-change.html">three-price raft</a> decisions from the season.</li>
+<li><strong>Margin by event type</strong> — markets vs fairs vs cons, and decide where next year's <em>weekends</em> go. Most sellers find one type quietly paying for everything else; most years the losing type deserves either a fix or a farewell.</li>
+<li><strong>The fun check.</strong> The reseller handbook's quit-chapter asks "is it still fun?" and this book inherits the question unchanged. Some years the honest answer is "not with these events" (change the events); occasionally it's "not this business shape" — and the honest-management answer to that is the same calm wind-down the reseller book describes: sell through, bundle the leftovers (the reseller book's lot-bundling ideas apply), and put the booth kit in storage with a date on it.</li>
+</ol>
+<h2 id="photo-archive-receipts">Photo archive + receipts</h2>
+<p>Two two-minute closes for the ritual:</p>
+<ul>
+<li><strong>Photos of the booth as-set</strong> — one event, every event, into the same <code>booth-photos</code> folder used for <a href="02-applications-and-permits.html">applications</a>. Next January you'll see how far the display traveled.</li>
+<li><strong>Receipts and permit paperwork</strong> into the paperwork kit's folder at home: booth-fee receipt, parking receipts, materials receipts (they were business expenses if you bought them for this), and your sales-tax filings from the <a href="02-applications-and-permits.html">permits chapter</a>. This folder is what makes (a) your next year's permit filings dull, and (b) the accountant conversation — if you have one — short and cheap.</li>
+</ul>
+<h2 id="the-ritual-on-days-you-dont-want-to-do-it">The ritual on days you don't want to do it</h2>
+<p>Some days end in rain, zero refunds, or a checked-out crowd, and the ritual feels like homework nobody assigned. Do the two-minute version instead of the thirty:</p>
+<ul>
+<li>Fill in the scorecard numbers only.</li>
+<li>Write one line in the five-questions slot: goal hit? Y/N.</li>
+<li>One sentence verdict: "Worth it? [Y/N/Maybe], one change: ___."</li>
+<li>Photos of the paper into the folder.</li>
+</ul>
+<p>Two minutes today beats nine lines next Saturday, when you'll have to re-derive from scratch the fact that the wave came at 1:40 p.m. (the <a href="08-slow-days-and-weather.html">slow-hours note</a> will remind you why that matters for <em>next</em> year's event pick).</p>
+<hr>
+<p>Next: printables. The <a href="event-scorecards.html">scorecards</a> and the <a href="packing-checklist.html">packing checklist</a>, ready to run on paper.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="08-slow-days-and-weather.html"><span class="dir">Previous</span>Slow Days &amp; Weather</a>
+      <a class="next" href="event-scorecards.html"><span class="dir">Next</span>Event Scorecards</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

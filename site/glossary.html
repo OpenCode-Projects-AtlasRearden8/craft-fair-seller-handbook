@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="active" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="glossary">Glossary</h1>
+<p>Every word this handbook uses, defined like a friend would. Cross-links hop to the chapter where the word earned its definition.</p>
+<p><strong>All-in cost</strong> — Booth fee + table rental + parking + permits + lunch + everything. The number the <a href="01-finding-events.html">five-question event test</a> asks about, which is always bigger than the advertised fee.</p>
+<p><strong>Application</strong> — The form an organizer uses to pick vendors and plan the floor (power, tables, rows, jury). Matchmaking, mostly (<a href="02-applications-and-permits.html">applications</a>).</p>
+<p><strong>Bring-formula</strong> — <code>rate/hour × hours × crowd factor × 1.3</code> = what to pack. The one formula in the book you'll actually use weekly (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>Booth fee</strong> — What you pay for the spot. Round-number shapes by event type live in <a href="01-finding-events.html">chapter 1</a>; the <em>bargaining</em> question is what's included (table? power? chair?).</p>
+<p><strong>Back-stock bin</strong> — The shelf under the table and the boxes in the van: stock that exists but is not yet displayed. The showroom is the table; the warehouse is the bin (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>Buffer third (×1.3)</strong> — The multiplier on the bring-formula that absorbs the difference between last event and this one. Insurance, not greed.</p>
+<p><strong>Bungee</strong> — The stretchy cord that attaches everything (weights, totes, sidewalls, trash bags) to something portable. Might be the actual most-used tool at markets.</p>
+<p><strong>Cash dance (two-hop)</strong> — Say the total aloud, cash flat on the box, then count change into the customer's hand. The <a href="04-pricing-and-making-change.html">whole ritual</a>, two hops, both out loud.</p>
+<p><strong>Cash float</strong> — The $85 of small bills and coins you <em>lend</em> the cash box at 10 a.m. so you can make change all day. Loaned, not earned — subtracted at <a href="04-pricing-and-making-change.html">close</a>.</p>
+<p><strong>Chargeback</strong> — A card charge reversed by the customer's bank, at the seller's expense, weeks later. Rare at markets, real as weather. The defense is honest goods, honest totals said aloud, and a happy receipt trail (<a href="05-card-readers.html">card readers</a>).</p>
+<p><strong>COI (certificate of insurance)</strong> — The paper an organizer may ask for to prove your vendor liability policy exists. Ask an insurance professional — organizers tell you <em>what</em> they need; agents tell you <em>what it costs</em> (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Crowd factor</strong> — In the bring-formula, how much bigger/smaller this event's traffic is than the one that taught you the rate. Same market: 1.0. "Double last year," believed: 1.5, at most.</p>
+<p><strong>Dead stock</strong> — Product nobody touched by close. A data point (pricing, placement, fit), not a guilt object (<a href="06-honest-sales-tracking.html">tracking</a>).</p>
+<p><strong>DBA / trade name</strong> — A business display name different from the legal name. Listed in the "describe your work" slot; the legal name goes in the business-name slot (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>EIN</strong> — An Employer Identification Number: the IRS's free nine- digit ID for a business, so your personal number isn't on every form you hand an organizer (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Event scorecard</strong> — The 1-5 verdict form you fill same-night, per event, that steers next season's bookings (<a href="event-scorecards.html">scorecards</a>).</p>
+<p><strong>Floor</strong> — The price of the three-layer cake below which you lose money per item: materials + labor + show share. Tags sit <em>above</em> the floor on purpose (<a href="04-pricing-and-making-change.html">pricing</a>).</p>
+<p><strong>Hero / filler / experiment</strong> — The 70/25/5 stock split: your best line, its helpers, and the one new thing (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>Jury</strong> — The screening some events do to pick a balanced room. Applies early, photos real, statement short (<a href="02-applications-and-permits.html">applications</a>).</p>
+<p><strong>Load-in / load-out</strong> — The 90 minutes of setup before open and the 30-ish of teardown after. Two totes, one wagon, one order (<a href="03-booth-setup-on-a-budget.html">booth setup</a>, <a href="packing-checklist.html">checklist</a>).</p>
+<p><strong>LLC</strong> — Limited liability company; a common small-business structure. This book is LLC-<em>flavored</em> — it explains names and forms, and never advises on whether to form one (that's a professional conversation; see <a href="index.html">what this book is not</a>).</p>
+<p><strong>Margin of the day</strong> — Net sales minus event costs: what the event actually added (<a href="06-honest-sales-tracking.html">tracking</a>). The number that pays for upgrades.</p>
+<p><strong>Offline mode</strong> — The reader feature that queues card charges on your device for later push, when there's no signal. Understands its risk <em>before</em> the first gust day (<a href="05-card-readers.html">card readers</a>).</p>
+<p><strong>One-third rule</strong> — When a third of a line is gone, restock that line now. The visual math of a table that still looks alive.</p>
+<p><strong>Over/short</strong> — The recorded difference between what your sheet says you took and what the box says. An honest log line, not a scandal (<a href="06-honest-sales-tracking.html">tracking</a>).</p>
+<p><strong>Permit / seller's permit</strong> — Formal state registration to sell taxable goods; the name varies by state. One phone call to your state's department of revenue settles most of it (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Price raft</strong> — The three tiers (small/medium/large) that let a browser read your whole table in one glance (<a href="04-pricing-and-making-change.html">pricing</a>).</p>
+<p><strong>Remit</strong> — Hand the collected tax money to the state, on their schedule. What happens after the envelope fills (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Restock</strong> — Refilling a line mid-day from bin or van, before the table looks bare. Also the <em>math chapter</em> that decides what you pack (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>RV / GSE note</strong> — Vehicles and generators at events have their own organizer rules; ask before you assume anything about parking, power, or idling (<a href="01-finding-events.html">questions</a>).</p>
+<p><strong>Sales tax</strong> — The buyer-paid portion, collected by you if your state requires it, remitted on their schedule. Recorded as a set-aside, not an opinion (<a href="06-honest-sales-tracking.html">tracking</a>).</p>
+<p><strong>Sell-through rate</strong> — Units sold ÷ hours open. The rate that feeds the bring-formula. Slow hours counted separately, for festivals' sake (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>Sidewall</strong> — Zip-on canopy walls for windward weather; one or two is plenty. The difference between "outdoor booth" and "outdoor booth in spring rules" (<a href="08-slow-days-and-weather.html">weather</a>).</p>
+<p><strong>SKU</strong> — Stock-keeping unit: one product-line/variant combination on your restock list. Pencil-level bookkeeping, not software (<a href="07-restock-math.html">restock math</a>).</p>
+<p><strong>Switch scam</strong> — The practiced "wait, I gave you bigger bills" claim at busy tills. The <a href="04-pricing-and-making-change.html">cash dance</a> is the whole vaccine.</p>
+<p><strong>Tally sheet</strong> — The seven-column per-event record of every sale: item, qty, price, cash, card, notes, and the totals footer (<a href="06-honest-sales-tracking.html">tracking</a>).</p>
+<p><strong>Vendor contract</strong> — The agreement behind "I paid for a spot": fee, refund-on-rain rule, load-in times, bump rules. Read before you pay (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Waitlist</strong> — The queue behind a full event. Not rejection — a chance at a moving slot. Answer waitlist offers within a day or two (<a href="01-finding-events.html">finding events</a>).</p>
+<p><strong>W-9</strong> — The organizer's vendor-ID form: name, address, TIN. A form, not a payment (<a href="02-applications-and-permits.html">permits</a>).</p>
+<p><strong>Wet go/no-go rule</strong> — Your pre-written stop conditions for storm-day calls, filled out in sunny weather (<a href="event-scorecards.html">scorecards</a>, <a href="08-slow-days-and-weather.html">weather</a>).</p>
+<p><strong>The Side-Hustle Reseller Handbook</strong> — The companion book: selling online (eBay/Amazon), listings, shipping, marketplace fees. This book's in-person counterpart, published by the same folks (<a href="index.html">relationship</a>).</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="packing-checklist.html"><span class="dir">Previous</span>Packing Checklist</a>
+      
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event Scorecards — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="active" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="event-scorecards">Event Scorecards</h1>
+<p>Printable, pencil-grade verdict forms. One pile, one pencil, honest numbers — the whole point of a scorecard is that it's filled while the day is still telling the truth. The setups stem from the <a href="index.html">chapters</a>; the scoring happens <a href="09-after-event-review.html">same-night</a>.</p>
+<h2 id="scorecard-a-the-free-visit-scout-card">Scorecard A: the free-visit scout card</h2>
+<p>Fill it in while wandering, as a <em>shopper</em>, before you ever pay a booth fee. These notes go home into the final scorecard when you book (see <a href="01-finding-events.html">Finding the Right Events</a>).</p>
+<pre><code>EVENT SCOUT CARD — not an application, just eyes
+EVENT: ______________________________ DATE: ___________
+LOCATION: ___________________________  INDOOR / OUTDOOR / COVERED
+
+WHO SHOPS HERE (three kinds of people you saw):
+  1. ____________________________
+  2. ____________________________
+  3. ____________________________
+
+WHAT SELLS (crowd seemed around):
+  _________________________________
+  _________________________________
+
+TABLES AT THE EVENT: ______   AISLE CROWD (1-5): ______
+DO SHOPPERS CARRY BAGS?  Y / N
+
+ASKED THREE VENDORS:
+  would they return? _______   fee ballpark? $_______
+  one honest summary: ______________________________________
+
+MY STUFF COULD SELL HERE?  (1-5): ____  WHY:
+  ______________________________________________________
+
+SCOUT VERDICT:  BOOK / WATCH ANOTHER YEAR / PASS
+</code></pre>
+<h2 id="scorecard-b-the-post-event-verdict">Scorecard B: the post-event verdict</h2>
+<p>The one-page <a href="09-after-event-review.html">after-event ritual</a> companion. Fill numbers 1-5, where <strong>1 = poor, 3 = fine, 5 = excellent</strong>:</p>
+<table><thead><tr><th>Question</th><th>Your 1-5</th></tr></thead><tbody><tr><td>1. Traffic quality (people passed ALL day, not just once)</td><td></td></tr><tr><td>2. Shopper fit (did the <em>right kind</em> of buyer reach you?)</td><td></td></tr><tr><td>3. Cost-to-value (was the booth fee worth what happened?)</td><td></td></tr><tr><td>4. Organizer quality (answered questions, helpful, honest)</td><td></td></tr><tr><td>5. Neighbor vendors (community: collaborators, not competitors)</td><td></td></tr><tr><td>6. Your setup's survival (did the booth work here — size, power, light)</td><td></td></tr><tr><td>7. Weather luck (cooperated, or you had the plan)</td><td></td></tr><tr><td>8. Table presence (tables stayed stocked, priced, appealing)</td><td></td></tr><tr><td>9. Money margin-of-day (&gt; 0, and near your goal)</td><td></td></tr><tr><td>10. Would I return, with what I know now</td><td></td></tr></tbody></table>
+<p>Ten rows, one pencil, five minutes.</p>
+<p><strong>Reading the verdict:</strong></p>
+<ul>
+<li><strong>8-10 overall</strong>: return as-is next season, book early (the returning-vendor list is worth its weight in good spots).</li>
+<li><strong>6-7</strong>: return <em>with one change</em>, decided by the change list.</li>
+<li><strong>4-5</strong>: watch this event another season; rebook only if something on <em>their</em> side changed.</li>
+<li><strong>Under 4</strong>: pass, pleasantly.</li>
+</ul>
+<h2 id="the-event-decision-matrix-fast-version">The event decision matrix (fast version)</h2>
+<p>For the week before the season, when offers stack up and you start booked-silly:</p>
+<table><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody><tr><td><strong>Shopper fit?</strong></td><td>The right kind of buyer beats a big crowd.</td></tr><tr><td><strong>Cost all-in vs expected gross?</strong></td><td>Know your <a href="09-after-event-review.html">cost per $100</a> floor before saying yes.</td></tr><tr><td><strong>Day of week?</strong></td><td>Saturday beats weekday for gifts; weekdays are for food.</td></tr><tr><td><strong>Is power available?</strong></td><td>If my booth needs it, it decides for me.</td></tr><tr><td><strong>Is it a return-to-market that earned a spot?</strong></td><td>Returning beats "new exciting thing" slightly less than half the time.</td></tr><tr><td><strong>Does the event refund for weather?</strong></td><td>Read the <a href="02-applications-and-permits.html">vendor contract</a> again; this clause decides more days than you'd think.</td></tr><tr><td><strong>Can I get there, set up, and rest before the next day?</strong></td><td>Two events back-to-back is a strategy; two badly-rested events is a mistake.</td></tr></tbody></table>
+<h2 id="the-wet-gono-go-rule-write-it-before-the-season">The wet go/no-go rule (write it BEFORE the season)</h2>
+<p>Because deciding in a panic is deciding badly. Fill this in once, in pencil, before you book your first spring event:</p>
+<pre><code>MY WET/WEATHER CALL PAPER (written in sunny weather)
+
+SAFETY SAYS STOP WHEN:
+  [ ] forecast thunder/lightning within booth hours
+  [ ] sustained winds above ~____ mph (my canopy&#x27;s honest rating)
+  [ ] named storm / official severe watch that overlaps load-in
+
+MONEY SAYS STOP WHEN:
+  [ ] the vendor contract lets me drop without paying the fee
+  [ ] the event officially cancels first
+  [ ] I&#x27;d rather save the stock than the fee (circle: yes / no)
+
+MY CALL IS MADE AT ____ (time) BY CALLING _______ (organizer contact)
+
+SEASON&#x27;S TOTALS AT THE BOTTOM (fill in over the year):
+  wet-ish events gone to: ______   no-gos instead: ______
+</code></pre>
+<h2 id="scorecard-c-the-season-roll-up-card">Scorecard C: the season roll-up card</h2>
+<p>A single card per season — the top strip of your <a href="06-honest-sales-tracking.html">weekly roll-up</a>, plus the bookings verdict. Pin it inside your cash-box lid or tape it to the van-window year.</p>
+<pre><code>SEASON: ________________ (dates)
+
+EVENT                        GROSS   MARGIN   SCORE (1-5)  RETURN?
+  _________________________   _____   _____    ____         Y/N/change
+  _________________________   _____   _____    ____         Y/N/change
+  _________________________   _____   _____    ____         Y/N/change
+  _________________________   _____   _____    ____         Y/N/change
+
+TOTAL MARGIN: $_______   BEST EVENT: _______________
+COST PER $100 (avg): $____   WORST EVENT: ________________
+
+NEXT SEASON&#x27;S BOOKING NOTES (three lines, tops):
+  1. ___________________________________________
+  2. ___________________________________________
+  3. ___________________________________________
+
+MY ONE BIG SEASON CHANGE FOR NEXT YEAR:
+  ____________________________________________________
+</code></pre>
+<h2 id="honest-scoring-is-the-whole-tool">Honest scoring is the whole tool</h2>
+<p>Two known failure modes, both worth naming:</p>
+<ul>
+<li><strong>Inflating a number out of guilt.</strong> Giving a 4 because you met the organizer's kid turns January's booking decision into a waste. The scores aren't about anyone's feelings; they're data, and they're allowed to be disappointing.</li>
+<li><strong>Scoring from memory.</strong> The scorecard is worth less each day past the event; same evening or not at all. (See the two-minute fallback in the <a href="09-after-event-review.html">ritual chapter</a> for days when thirty minutes isn't in you.)</li>
+</ul>
+<p>If your numbers <em>ever</em> deviate wildly from your dollars, believe the dollars: gross, margin, and cost-per-$100 are the ground truth, and the scorecard is the steering wheel on top of it.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="09-after-event-review.html"><span class="dir">Previous</span>After-Event Review</a>
+      <a class="next" href="packing-checklist.html"><span class="dir">Next</span>Packing Checklist</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

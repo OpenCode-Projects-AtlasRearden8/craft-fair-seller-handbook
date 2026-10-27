@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restock Math — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="active" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="restock-math">Restock Math</h1>
+<p>Selling out is a mixed blessing. It clears your table and it costs you your best hours: the customers who arrive at 2 p.m. to buy the very thing you sold at 11 a.m. are unrealized revenue — and sometimes they won't return another day. Restock math is the forty seconds of arithmetic that turns last event's tally sheet into this event's packing list.</p>
+<h2 id="the-honest-unit-sell-through-per-hour">The honest unit: sell-through per hour</h2>
+<p>From your <a href="06-honest-sales-tracking.html">tracking tally</a>, compute one number per product line, in round terms:</p>
+<blockquote><p><strong>sell-through rate = units sold ÷ hours open</strong></p></blockquote>
+<p>Ten candles sold in an 8-hour day: about <strong>1.25 candles per hour</strong>. If the day was honestly dead for 5 of its 8 hours (note hour-sells and you'll see it), the <em>useful</em> rate is units ÷ 3 active hours — about 3.3 per hour — because what you're matching is <em>the next event's crowd</em>, not the next event's clock. Both rates are useful; write rate-per-hour and rate-per-busy-hour side by side and let the event type decide which one to steer by (weekly markets are steady-rate events; one-day festivals are busy-hour events).</p>
+<h2 id="units-to-bring-the-bring-formula">Units to bring: the bring-formula</h2>
+<p>For each line, next event:</p>
+<pre><code>UNITS TO BRING = rate/hour × event hours × crowd factor × 1.3
+</code></pre>
+<ul>
+<li><strong>rate/hour</strong> — the sell-through rate above (use the low or middle one; use the busy-hour rate for festivals).</li>
+<li><strong>event hours</strong> — hours open, not hours you stand there.</li>
+<li><strong>crowd factor</strong> — how much bigger or smaller this event's traffic is than the one that taught you the rate. Same market, same season: <strong>1.0</strong>. Organizer claims "double last year," and you believe them: <strong>1.5</strong> at most. Untested venue: <strong>1.0</strong> until proven — your <em>first</em> event somewhere uses a rate of <em>0</em>, which is why first events are brought by shelf rules (below) rather than math.</li>
+<li><strong>× 1.3</strong> — the <strong>buffer third</strong>: part insurance, part realistic restock. It exists because "I sold out by noon" always overestimates demand in memory, and because table gaps look worse than under-stock feels.</li>
+</ul>
+<p>Worked example, deliberately round: candles sell 1.25/hour at the Spring Fair; the next booking is the same market next month, 7 hours, crowd factor 1.</p>
+<pre><code>BRING = 1.25 × 7 × 1 × 1.3 ≈ 11.4  →  pack 12 candles
+</code></pre>
+<p>Twelve candles out the door; the buffer sits in the back-stock bin until it is table stock. <strong>The table is the showroom; the shelf is the warehouse</strong> — this distinction is most of this chapter.</p>
+<h2 id="wait-and-whats-on-the-shelf">Wait, and what's on the shelf?</h2>
+<p>The bring-formula only works when you know what you <em>own</em>. The shelf count — your <a href="glossary.html">SKU</a> list — is a ten-minute Sunday-question for your <a href="06-honest-sales-tracking.html">records</a> stack:</p>
+<table><thead><tr><th>Product line</th><th>On shelf</th><th>Committed (table)</th><th>Truly available</th></tr></thead><tbody><tr><td>Candles, medium</td><td>24</td><td>12 (this event)</td><td>12</td></tr><tr><td>Soap, bars</td><td>60</td><td>40</td><td>20</td></tr><tr><td>Ornaments</td><td>8</td><td>8</td><td><strong>0 — make more before next event</strong></td></tr></tbody></table>
+<p>If "truly available" is negative for a line you plan to bring, that isn't a math problem; it's a <strong>make-or-buy decision with a deadline</strong> — write it on the <a href="09-after-event-review.html">after-event review</a> list the same night, because inventory that happens in the two nights before an event is inventory that happens badly.</p>
+<h2 id="the-stock-split-hero-filler-experiment">The stock split: hero / filler / experiment</h2>
+<p>What you <em>bring</em> is not what you <em>own</em>. You're curating a subset, and the shape that survives contact with the public is:</p>
+<table><thead><tr><th>Tier</th><th>Share of table</th><th>What it is</th><th>What it asks of you</th></tr></thead><tbody><tr><td><strong>Hero</strong></td><td>about 70%</td><td>Your best, most-stocked line</td><td>Priced by the <a href="04-pricing-and-making-change.html">three-price raft</a>; refilled from back-stock through the day</td></tr><tr><td><strong>Filler</strong></td><td>about 25%</td><td>Companions, seasonal fits, second best-sellers</td><td>Present, priced, honest tier 2</td></tr><tr><td><strong>Experiment</strong></td><td>about 5%</td><td>The new thing you <em>want</em> to try</td><td>Small batch, notable signs, honest line ("just launched")</td></tr></tbody></table>
+<p>A table that's 70% hero, then, is <em>one message</em> strong — the ten-foot rule from <a href="03-booth-setup-on-a-budget.html">booth setup</a> is about products too.</p>
+<h2 id="sell-out-is-a-plan-not-an-accident">Sell-out is a plan, not an accident</h2>
+<p>The chapter's quiet secret: some stock <em>should</em> sell out. The linework:</p>
+<ul>
+<li><strong>Deliberate sell-out</strong> — a limited holiday edition where you <em>want</em> scarcity ("I only brought 20"), clearly labeled as limited. Customers respect an ending they were warned about; the panic kind of sell-out just teaches them your table is unreliable.</li>
+<li><strong>Restock-from-the-van</strong> — a second box in the car for the line that <em>earned</em> a restock by noon. Bring one van-box per event, and only for hero lines. It's the 1.3 buffer with an escape hatch.</li>
+<li><strong>The one-third rule</strong> — when one third of a line is gone, you restock that line <em>now</em>, from the van or the back bin. A third gone is the point where a table starts looking bare from ten feet away, which is exactly where the <a href="03-booth-setup-on-a-budget.html">booth's</a> whole visual promise is kept or lost.</li>
+</ul>
+<h2 id="the-count-before-you-pack-ritual">The count-before-you-pack ritual</h2>
+<p>The sheet that connects this chapter to the <a href="packing-checklist.html">packing checklist</a>, filled in at the packing table (not in the car):</p>
+<ul class="checklist">
+<li>&#9744; Per line: write bring-formula answer on paper</li>
+<li>&#9744; Count actual units into the totes</li>
+<li>&#9744; Note "on hand after packing" per line (that's your post-event shelf number)</li>
+<li>&#9744; Anything already behind (commits but not made) gets a MAKE-MORE post-it, then goes into the review list</li>
+</ul>
+<p>Ten minutes. It kills the "did I pack the candles?" spiral before it starts, and it makes the next event's bring-formula inputs (shelf counts) <em>known data</em> instead of memory sifting through boxes at 11 p.m. the night before you have to leave.</p>
+<h2 id="what-restock-math-cant-fix">What restock math can't fix</h2>
+<p>Restock math amplifies good products and can't rescue misfits:</p>
+<ul>
+<li>If a line <em>never</em> sells at any event, the answer isn't more restock units — it's the <a href="06-honest-sales-tracking.html">tracking chapter's</a> question 5: pricing, placement, or a polite sunset.</li>
+<li>If event traffic was the problem (not your stock), more units just waste the buffer. The <a href="event-scorecards.html">event scorecard</a> is the verdict on the <em>event</em>, before you blame the boxes.</li>
+<li>If your hero line is heroic because of <em>one</em> fluky seasonal spike only your city's weather creates — seasonality belongs in the crowd factor. Round-honest statement: seasonal rates from two years of the same market beat any formula in this chapter.</li>
+</ul>
+<p>And, as ever: if the whole enterprise is producing anxiety rather than margin — boxes you were afraid to open, markets you were afraid to book — the answer is not more formulas. The reseller handbook's <em>quitting politely</em> chapter and this book's <a href="09-after-event-review.html">after-event review</a> are the two doors out of an overstocked, overrun market year, and both open calmly.</p>
+<hr>
+<p>Next: the sky, the silence, and the slow hour — what to do when traffic doesn't happen, using a plan instead of a shrug.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="06-honest-sales-tracking.html"><span class="dir">Previous</span>Sales Tracking</a>
+      <a class="next" href="08-slow-days-and-weather.html"><span class="dir">Next</span>Slow Days &amp; Weather</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

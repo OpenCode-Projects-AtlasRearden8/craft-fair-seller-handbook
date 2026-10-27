@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packing Checklist — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="active" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="packing-checklist">Packing Checklist</h1>
+<p>The night-before list, printable and checkable. Two totes, one wagon, one box — everything that leaves the house for an event, divided by job. The lists are designed around the <a href="03-booth-setup-on-a-budget.html">two-tote load-in</a>: <strong>Tote 1 is the structure</strong> (canopy, table, chair, weights), <strong>Tote 2 is the contents</strong> (cloth, product, signs, money kit), and both lids get a printed copy of this page.</p>
+<h2 id="tote-1-structure-goes-up-first">Tote 1: Structure (goes up first)</h2>
+<ul class="checklist">
+<li>&#9744; Canopy, with its stakes/pegs bagged <em>to the frame</em></li>
+<li>&#9744; Canopy weights — all four, bungee'd to the frame for carry</li>
+<li>&#9744; Sidewalls (1-2, weather season only)</li>
+<li>&#9744; Table (or table rental receipt if renting; check the organizer's <a href="01-finding-events.html">table answer</a>)</li>
+<li>&#9744; Tablecloth + skirt cloth</li>
+<li>&#9744; Chair (one is enough; you stand more than you sit)</li>
+<li>&#9744; Riser crates (2), the flat cart or suitcase shelving</li>
+<li>&#9744; Hand cart / wagon</li>
+<li>&#9744; Bungee cords (4), duct tape lap, sharpie</li>
+</ul>
+<h2 id="tote-2-contents-the-product-layer">Tote 2: Contents (the product layer)</h2>
+<ul class="checklist">
+<li>&#9744; Stock by line, packed <a href="07-restock-math.html">by the bring-formula</a>, counted, in order of table placement</li>
+<li>&#9744; Van-box: the <a href="07-restock-math.html">one back-stock box</a> for hero lines (one per event, labeled)</li>
+<li>&#9744; Price cards / tags / the <a href="04-pricing-and-making-change.html">three-price raft</a> signs</li>
+<li>&#9744; Banner / tabletop sign / business cards or tags</li>
+<li>&#9744; Display props in their labeled pouch (frames, stands, mirror)</li>
+<li>&#9744; Bags for customers (small paper or reusable, stocked)</li>
+<li>&#9744; Tissue / ribbon / small-gift wrap (if you offer it)</li>
+</ul>
+<h2 id="the-money-kit-the-box-with-the-lid-card">The money kit (the box with the lid card)</h2>
+<p>Everything money lives in one closable box with a card taped in the lid:</p>
+<ul class="checklist">
+<li>&#9744; <strong>The lid card</strong>, printed: starting float breakdown ($40 ones / $25 fives / $20 tens / $10 coins = <strong>$85</strong>)</li>
+<li>&#9744; Cash box <em>or</em> money apron (make-change happens <a href="04-pricing-and-making-change.html">at the body</a>)</li>
+<li>&#9744; Card reader, charged, with its cable</li>
+<li>&#9744; Phone, charged — <em>and</em> phone charger + battery bank</li>
+<li>&#9744; Card reader's printed support number (in case of app update amnesia — see the <a href="05-card-readers.html">dry run</a>)</li>
+<li>&#9744; Sales-tax rate card (if your state's tag prices are add-on style — see <a href="02-applications-and-permits.html">permits</a>)</li>
+<li>&#9744; Price-signing pen (one that writes on cardstock <em>and</em> the tally sheet)</li>
+</ul>
+<h2 id="the-paperwork-kit-a-plastic-sleeve-in-tote-2">The paperwork kit (a plastic sleeve in Tote 2)</h2>
+<ul class="checklist">
+<li>&#9744; Sales-tax permit copy / registration number</li>
+<li>&#9744; COI (if the event <a href="02-applications-and-permits.html">required one</a>)</li>
+<li>&#9744; Booth-fee receipt copy</li>
+<li>&#9744; Vendor contract copy</li>
+<li>&#9744; One blank W-9</li>
+<li>&#9744; Photo ID</li>
+<li>&#9744; Event/load-in pass (if issued)</li>
+<li>&#9744; One printed copy of <a href="packing-checklist.html">this checklist</a> — that's this page, so you checked it twice</li>
+</ul>
+<h2 id="the-weather-kit-season-follows-season">The weather kit (season follows season)</h2>
+<ul class="checklist">
+<li>&#9744; Plastic table cover / shower-curtain liner</li>
+<li>&#9744; Ziplock bags for paper things (<a href="06-honest-sales-tracking.html">tally sheets</a>, permits, price cards)</li>
+<li>&#9744; One towel (canopy poles weep)</li>
+<li>&#9744; Dry socks; the <a href="08-slow-days-and-weather.html">good shoes</a></li>
+<li>&#9744; Hand warmers (late season) / clip fan + battery (early season)</li>
+<li>&#9744; Sunscreen / hat / rain shell (seller's PPE)</li>
+<li>&#9744; Trash (yours, always): 2 bags</li>
+</ul>
+<h2 id="the-person-kit-you-are-also-at-the-event">The person kit (you are also at the event)</h2>
+<ul class="checklist">
+<li>&#9744; Water (a real amount — 2 liters minimum)</li>
+<li>&#9744; Lunch + snacks (the <a href="08-slow-days-and-weather.html">feed-the-seller rule</a>)</li>
+<li>&#9744; Any meds you'd take on a normal workday, in their normal place</li>
+<li>&#9744; Layers for the day's swing (mornings are cold; afternoons lie)</li>
+<li>&#9744; Chapstick, wipes, one small first-aid pouch</li>
+<li>&#9744; Band-aids in the <em>tool</em> pouch, not the first-aid pouch, if you're the kind of maker who knows why</li>
+</ul>
+<h2 id="load-in-morning-order-tape-this-inside-tote-1">Load-in morning order (tape this inside Tote 1)</h2>
+<ol>
+<li>Canopy up, <strong>weights on immediately</strong></li>
+<li>Table in place, level check</li>
+<li>Cloth on (hems even on the customer's side)</li>
+<li>Crates and risers positioned</li>
+<li>Signage up</li>
+<li>Product on — <a href="07-restock-math.html">hero first</a></li>
+<li>Money kit opened <em>last</em>, float counted once, then the <a href="04-pricing-and-making-change.html">box lives on your side</a> of the table line</li>
+</ol>
+<h2 id="load-out-night-order-the-reverse-plus-the-ritual">Load-out night order (the reverse, plus the ritual)</h2>
+<ol>
+<li>Money box closed and counted (<a href="04-pricing-and-making-change.html">the end-of-day count</a>) <em>before</em> anything else moves</li>
+<li>Product into totes (count as you go — this is the restock count, done in 2 minutes instead of 20 later)</li>
+<li>Signage flat, cloth folded around the firm stuff</li>
+<li>Table and risers into Tote 1</li>
+<li>Canopy <em>last</em> to come down, weights stay bungee'd to the frame</li>
+<li>One glance under the table — this finds the one thing every event almost takes from you</li>
+<li><strong><a href="09-after-event-review.html">The review ritual</a> at the kitchen table</strong> — tonight, not "this weekend"</li>
+</ol>
+<h2 id="the-two-rule-summary-of-this-whole-page">The two-rule summary of this whole page</h2>
+<ol>
+<li><strong>Two totes and one box</strong> — if it doesn't fit the system, it doesn't come (the exception earns an exception by review, not by hope).</li>
+<li><strong>Check the list the night before</strong>, at the packing table, when errors are still free.</li>
+</ol>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="event-scorecards.html"><span class="dir">Previous</span>Event Scorecards</a>
+      <a class="next" href="glossary.html"><span class="dir">Next</span>Glossary</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start Here — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="active" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="start-here">Start Here</h1>
+<p>Welcome. Maybe you have a garage shelf of hand-made candles, a spreadsheet finally sorted, and a browser tab permanently open that says <em>"how much do booths cost?"</em> This handbook was written for you — with zero judgment attached. It's about <strong>selling in person</strong>: craft fairs, farmers markets, vendor shows, and conventions — a real small-business move (Lots of people run it under an LLC; plenty of people don't, yet) that this book explains the way a friend would: plainly, step by step, never condescending.</p>
+<p>It's the in-person companion to <strong>The Side-Hustle Reseller Handbook</strong> (selling online on eBay/Amazon). Different venue, same temperament: calm, honest, no get-rich-quick anywhere in the room.</p>
+<h2 id="the-promise-of-this-book">The promise of this book</h2>
+<p>By the end, you'll be able to answer these questions in your own words:</p>
+<ol>
+<li><strong>Which events are worth my money and my Saturday?</strong> (A five-question filter, and a free way to scout before you spend.)</li>
+<li><strong>What's on an application, and what is a sales-tax permit really asking?</strong> (Plain English, no fear, one phone call that solves most of it.)</li>
+<li><strong>What do I actually need for a booth?</strong> (A plan that starts around $150 and skips exactly none of the things that make people say "ooh, nice booth.")</li>
+<li><strong>What should things cost and where does the change come from?</strong> (Round prices, a $85 starting float, and the two-hop cash dance.)</li>
+<li><strong>How do card readers work and how do I not look silly the first time?</strong> (A dry-run ritual you do at your kitchen table.)</li>
+<li><strong>What do I write down, honestly, so the numbers teach me something?</strong> (One tally sheet, reconciled to the penny by 10 p.m.)</li>
+<li><strong>How much stock should I bring?</strong> (Restock math with a hero/filler/ experiment split.)</li>
+<li><strong>What do I do when the day is slow or the sky turns mean?</strong> (Ten moves for slow hours, a canopies-to-tents wet plan, and taking care of the seller — you.)</li>
+<li><strong>And after it all — what do I actually review?</strong> (A 30-minute ritual that decides next season, on purpose.)</li>
+</ol>
+<p>You will not need a warehouse, a niche emporium, a 40-page business plan, or a single borrowed dollar for any of it.</p>
+<h2 id="how-to-read-it">How to read it</h2>
+<p>The chapters build on each other, but each one stands on its own. Honest shortcuts:</p>
+<ul>
+<li><strong>"I found an event — am I allowed to just sign up?"</strong> Read <a href="02-applications-and-permits.html">Applications and permits</a> first.</li>
+<li><strong>"What should my booth look like?"</strong> <a href="03-booth-setup-on-a-budget.html">Booth on a budget</a>.</li>
+<li><strong>"Money questions."</strong> <a href="04-pricing-and-making-change.html">Pricing and change</a> and <a href="05-card-readers.html">Card readers</a>, then <a href="06-honest-sales-tracking.html">Sales tracking</a>.</li>
+<li><strong>"How much do I bring?"</strong> <a href="07-restock-math.html">Restock math</a>.</li>
+<li><strong>"It's going to rain / nobody came."</strong> <a href="08-slow-days-and-weather.html">Slow days and weather</a>.</li>
+<li><strong>"The event is over. Now what?"</strong> <a href="09-after-event-review.html">After-event review</a>.</li>
+<li><strong>"Print me a thing."</strong> <a href="event-scorecards.html">Event scorecards</a> and the <a href="packing-checklist.html">Packing checklist</a>.</li>
+</ul>
+<h2 id="the-ground-rules-we-wrote-by">The ground rules we wrote by</h2>
+<p>Three promises, kept on every page:</p>
+<ol>
+<li><strong>No condescension.</strong> If a word needs defining, we define it the first time (see the <a href="glossary.html">Glossary</a>). If a step sounds obvious, we say it anyway — because "obvious" is only obvious once you know it.</li>
+<li><strong>Round numbers, clearly flagged.</strong> Booth fees, card-reader rates, and float figures here are rounded on purpose so you can do them in your head. When a number is a guess, we say so.</li>
+<li><strong>Low stakes first.</strong> Your first event is a test, not a verdict. We will send you to a one-day, low-fee market before we ever send you to a two-day convention.</li>
+</ol>
+<h2 id="selling-in-person-vs-the-reseller-book">Selling in person vs. the reseller book</h2>
+<p><strong>The Side-Hustle Reseller Handbook</strong> covers selling <em>online</em>: listings, photos, shipping labels, marketplace fees, and quitting politely. This book covers selling <em>in person</em>: the room you can't retake, the change you must make, and the weather you can't reschedule. The books share the same bones — one simple records table, scam-radar, and the "quit or change course before you sour" instinct — and cross-pollinate freely:</p>
+<ul>
+<li>The reseller book's <strong>sold-price research</strong> is this book's event research: look at what actually happened, not what was hoped.</li>
+<li>The reseller book's <strong>TAXES envelope</strong> habit works just as well after market days (see <a href="06-honest-sales-tracking.html">Honest sales tracking</a>).</li>
+<li>When events leave you holding leftover stock online-first, the reseller book's lot-bundling ideas are the polite cleanup crew.</li>
+</ul>
+<p>Neither book requires the other to be useful.</p>
+<h2 id="what-this-handbook-is-not">What this handbook is not</h2>
+<ul>
+<li>It is not tax, legal, or financial advice. "LLC-flavored" means the book assumes a small formal business <em>might</em> exist, and explains names, permits, and forms in plain language — it never tells you what structure to choose or what to owe. When a decision gets real (money, legal, health), a real professional belongs in the conversation.</li>
+<li>It is not a get-rich scheme, and it will not promise that foot traffic goes up. Markets are a real job with real hours — standing in wind, even. We just want the hours to be calm.</li>
+<li>It is not finished. Event norms and payment-app policies change; this book is versioned, updated, and open source under the MIT license. Corrections welcome.</li>
+</ul>
+<h2 id="the-one-paragraph-version-of-the-whole-book">The one-paragraph version of the whole book</h2>
+<p>Pick an event whose <em>shoppers</em> match your <em>stuff</em> — scout it in person first with the <a href="event-scorecards.html">event scorecard</a> before you pay any booth fee. Apply early; ask the organizer what paperwork they require and <a href="02-applications-and-permits.html">what the state asks from you</a> before you pay, not after. Build a booth that reads at ten feet and packs into two totes (<a href="03-booth-setup-on-a-budget.html">booth on a budget</a>). Price in whole dollars, start with an $85 float, and make change with the two-hop dance (<a href="04-pricing-and-making-change.html">pricing</a>). Take cards with a reader you rehearsed at your kitchen table, and know your offline plan (<a href="05-card-readers.html">card readers</a>). Track every sale in one honest sheet and count the box at close (<a href="06-honest-sales-tracking.html">tracking</a>). Bring stock by the hero/filler/experiment split, restock before you sell out (<a href="07-restock-math.html">restock math</a>), and survive slow hours and ugly skies with a plan, not a shrug (<a href="08-slow-days-and-weather.html">slow days &amp; weather</a>). Then do the 30-minute review the same night and let it decide your next date — not your mood (<a href="09-after-event-review.html">after-event review</a>).</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      
+      <a class="next" href="01-finding-events.html"><span class="dir">Next</span>Finding Events</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

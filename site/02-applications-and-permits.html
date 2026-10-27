@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Applications and Permits (Plain English) — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="active" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="applications-and-permits-plain-english">Applications and Permits (Plain English)</h1>
+<p>This is the chapter people skip and then panic about on Thursday night. Here's the friendly version: what's on an application, what an organizer is actually asking for when they mention permits, and what a sales-tax permit is in words you can say out loud. One clear flag on everything: this book is education, not tax or legal advice — when a question has real money or real law in it, a real professional or the actual agency gives the real answer.</p>
+<h2 id="whats-on-an-application-form-and-why">What's on an application form (and why)</h2>
+<p>Event applications are mostly <em>matchmaking</em> questions. Organizers are trying to build a good room. Expect:</p>
+<table><thead><tr><th>Question</th><th>What it's really asking</th></tr></thead><tbody><tr><td>Business / seller name</td><td>"Whose name goes on the vendor list?" (See <em>Business names</em> below.)</td></tr><tr><td>Describe your work</td><td>"Will you fit the vibe? Will you be different from the eight other candle tables?"</td></tr><tr><td>3-5 photos of your work or booth</td><td>"Is this real, does it photograph well?" (Booth photos beat product photos — organizers imagine <em>your setup</em> in <em>their room</em>.)</td></tr><tr><td>Table/chair/electricity needs</td><td>"How much room and power do we budget for you?"</td></tr><tr><td>Booth space size requested</td><td>"Single, double, corner, with-wall?"</td></tr><tr><td>Insurance question</td><td>"If you knock over a customer with a canopy leg, is there a policy, or is it <em>our</em> problem?"</td></tr><tr><td>W-9 request</td><td>"Our accountant needs a vendor record." (Plain-English note below.)</td></tr><tr><td>Payment of booth fee</td><td>The actual transaction.</td></tr></tbody></table>
+<p>Applications for juried shows add: photos of you or your process ("is this handmade?"), short artist statements ("what makes it yours?"), and deadlines measured in months, not days.</p>
+<h2 id="the-two-rules-of-applying">The two rules of applying</h2>
+<ol>
+<li><strong>Apply early.</strong> Returning vendors often get re-booking priority before the public opens. The best spots go to whoever applied in January for the October event, not whoever applied in September.</li>
+<li><strong>Waitlist is not rejection.</strong> A waitlist means you're in the queue with a chance to move up, which happens constantly — babysitters back out, mortgages cash in, a mechanical bull cancels. Say yes to waitlist offers within a day or two of being asked; they're often last-minute.</li>
+</ol>
+<p>Read the <em>vendor contract</em> before you pay the fee. Look for the cancellation policy (both directions), the refund rule for rain, the load-in/load-out times, any marketing requirements (logo use, social-media posts), and the terms for being bumped or re-seated. Sign only what you understand — that sentence is the most practical legal advice in this book, and it isn't legal advice.</p>
+<h2 id="business-names-llcs-and-the-way-they-show-up-on-forms">Business names, LLCs, and the way they show up on forms</h2>
+<p>"LLC-flavored" means this book assumes a small formal business <em>might</em> exist. On an application:</p>
+<ul>
+<li>If you have a formal <strong>business name</strong> — say, an LLC name — you apply and appear in the vendor list under that registered name. That's generally what organizers want: the name that matches whatever permits, insurance, or bank account you show.</li>
+<li>If your business is informal (you sell under your own personal name), that's fine too, and the application just gets your real name. Nothing here tells you whether to form an LLC — that's a sit-down conversation with a real professional, and it depends on your situation, income, risk, and state. What this book <em>can</em> tell you: whichever name you use, use it <strong>everywhere</strong> — application, permit records, tax form you give, and the name on your card-reader profile. Mismatched names cause more Friday-afternoon confusion than any other paperwork detail.</li>
+<li><strong>DBA / trade name</strong>: if you sell under a display name ("Dylan's Unruly Wooden Things") that's different from your legal business name, some events ask about both. Write the legal name as the business name and the display name in the "describe your work" or "brand name" slot if one exists. If no display-name field exists, the "describe your work" text is the right place to slip it in.</li>
+</ul>
+<h2 id="the-w-9-in-one-paragraph">The W-9, in one paragraph</h2>
+<p>A <strong>W-9</strong> is not a tax payment and not an IRS audit. It's a simple form you fill out so a paying business — here, the event organizer — can, in <em>some</em> situations, issue <em>certain</em> paperwork to its accountant later. It asks your name (and business name, if different), address, and your <strong>TIN</strong> — which, for most small vendors, is either your Social Security number (as an individual) or an <strong>EIN</strong>, the nine-digit Employer Identification Number you can get free from the IRS when you have a business identity you'd rather use than your personal number. Two practical notes, no advice attached: first, giving the <em>right name with the TIN</em> matters (again: use the same name everywhere); second, W-9s with SSNs are sensitive personal documents — hand them to a verified organizer through the organizer's own channel, never to "the person who messaged you about booth setup."</p>
+<h2 id="insurance-what-the-question-means-and-who-to-ask">Insurance — what the question means, and who to ask</h2>
+<p>When an application asks <strong>"Do you carry vendor liability insurance?"</strong>, it's asking whether you (not the venue, not the organizer) have a policy that would respond if someone were hurt by your booth or your product. Organizers often <em>require</em> proof of it for the bigger shows, and the industry informally calls it a <strong>COI</strong> ("certificate of insurance").</p>
+<p>Plain-English framing only:</p>
+<ul>
+<li>Small community shows frequently <em>don't</em> require it; large juried fairs and conventions often do. The application tells you which kind you're in.</li>
+<li>Organizers are allowed to require it, and they're not the people who sell it — they simply tell you their requirement; the <em>sourcing</em> decision is between you and a licensed professional (and, if you operate one, your LLC's paperwork is where the policy name goes).</li>
+<li>Policy costs and coverage vary wildly by state, product, and the venue's rules. Do <strong>not</strong> let a chapter of a handbook choose your insurance — let this chapter tell you <em>which question to ask</em>, and let a licensed agent give the real quote. The wrong insurance isn't just bad value; no insurance can also mean a Friday cancellation you saw too late.</li>
+</ul>
+<h2 id="sales-tax-permits-in-genuinely-plain-english">Sales-tax permits, in genuinely plain English</h2>
+<p>Here's what's really being asked when a form says "Provide seller's permit number."</p>
+<p>The idea in one breath: most U.S. states levy a <strong>sales tax</strong> on things consumers buy, and the rule is roughly — <em>you</em> collect it from customers and then hand it (remit it) to the state, usually monthly or quarterly. For a fair or market, the practical version is:</p>
+<ol>
+<li><strong>Most states want sellers of taxable goods to be registered with the state's tax department</strong> before they sell. The specific form and name vary hugely by state ("sales tax permit," "seller's permit," "resale certificate," "certificate of registration" — synonyms without a standard meaning; the state's own <strong>department of revenue</strong> website is always the real source of truth, full stop).</li>
+<li><strong>Registration is usually simple and often free.</strong> It's a form, and (educationally — not reliably, so check your state's current reality) many states process small registrations in a few business days. Some states only ask you to register for a <em>temporary</em> window: "a permit for this one event." Other states use one year-round registration for everything. Some states have no general sales tax at all (a handful do not, at the general level). This book deliberately does not name your state; the state does, definitively, on its own site.</li>
+<li>**The organizer uses that registration number to satisfy <em>their</em> records** — they often need to show their venue or town office that their vendors are registered, not running anonymous tables. It's a checkbox, not an exam. Number in hand goes on the form, done.</li>
+<li><strong>At the booth:</strong> when a customer buys a taxable item, you add the local rate to the sale (a poster of "$1 tax per $10" sits behind you — see <a href="04-pricing-and-making-change.html">Pricing</a>). The money collected belongs to the state as soon as it lands in the cash box, on paper — <em>most vendors don't physically split it out, they just record it</em>, then remit what they collected at filing time.</li>
+<li><strong>At the end of the period</strong>, you file the state's return (many are now quick online forms you can finish during a lunch break) and send in what was collected. When in doubt about any of it, the state's own help line answers seller-permit and filing questions plainly, and genuinely more kindly than you probably expect.</li>
+</ol>
+<p><strong>The one-phone-call rule:</strong> <em>before</em> you pay a booth fee for your very first event, make one phone call to your state's department of revenue (the number is on their official site, not in this book) and ask two plain questions:</p>
+<ol>
+<li>"I'm selling at a one-day craft fair in your town — do I need to register, and is it free?"</li>
+<li>"Is the permit permanent, or do I need a temporary one per event?"</li>
+</ol>
+<p>That phone call settles more than ten blog posts, including this one. Write the answers on the inside cover of your <a href="packing-checklist.html">money kit</a> and you're equipped. If the phone line is long, most states also have the answers on their official site, in plain HTML, no login required.</p>
+<h2 id="the-what-do-i-bring-checklist-paperwork-edition">The "what do I bring" checklist (paperwork edition)</h2>
+<p>Structure says "bring copies even if nothing checks them," and that's good advice. Into the <a href="packing-checklist.html">paperwork kit</a>:</p>
+<ul class="checklist">
+<li>&#9744; Your <a href="#sales-tax-permits-in-genuinely-plain-english">sales-tax permit</a> registration or number, on paper</li>
+<li>&#9744; The COI if the event required one</li>
+<li>&#9744; A filled, signed copy of the booth-fee receipt (proof you paid)</li>
+<li>&#9744; A copy of the vendor contract you signed</li>
+<li>&#9744; One W-9 form, <em>blank</em>, in case you meet someone who needs one signed in person</li>
+<li>&#9744; A photo ID</li>
+<li>&#9744; Your <strong>event pass / load-in pass</strong> if the event issues them</li>
+</ul>
+<p>None of this takes space. A plastic sleeve holds it all.</p>
+<h2 id="if-the-application-mentions-fees-for-taxes">If the application mentions "fees for taxes"</h2>
+<p>Some events charge <em>additional</em> fees on top of booth rent with labels like "taxes," "license fee," or "towns tax collected by organizer." These exist legitimately in some jurisdictions where the venue collects and remits city-level taxes on behalf of vendors instead of making each vendor do the individual paperwork — genuinely common around tourist-heavy markets. Whether <strong>that model applies in your town</strong>, and whether <strong>you're still responsible for something else</strong>, is exactly the kind of thing the <strong>one-phone-call rule</strong> (just above) was made for. Ask the organizer first (they usually explain it with enthusiasm — it's their paperwork saving you hours), and only call the state when the organizer's answer is unclear.</p>
+<h2 id="the-short-version-for-a-sticky-note">The short version, for a sticky note</h2>
+<ol>
+<li><strong>Apply early; waitlist is not rejection.</strong></li>
+<li><strong>Same name everywhere</strong> — application, permit, card reader.</li>
+<li><strong>W-9 is a form, not a payment.</strong> SSN or <a href="glossary.html">EIN</a>; an EIN is free from the IRS and keeps your personal number out of organizers' files.</li>
+<li><strong>Insurance question = "do you have a COI?"</strong> Only an agent quotes.</li>
+<li><strong>Sales-tax permit</strong>: register with your state before you sell; call the state's department of revenue once with two questions; write the answers inside your money kit.</li>
+<li><strong>Bring paper copies</strong> of everything to the event.</li>
+</ol>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="01-finding-events.html"><span class="dir">Previous</span>Finding Events</a>
+      <a class="next" href="03-booth-setup-on-a-budget.html"><span class="dir">Next</span>Booth on a Budget</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booth Setup on a Budget — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="active" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="booth-setup-on-a-budget">Booth Setup on a Budget</h1>
+<p>Your booth is a tiny room you build twice a week at 6 a.m. and tear down in rain. This chapter is about making that room good <em>cheap</em> — the whole starter kit lands around <strong>$150</strong>, and every expensive upgrade below has a free version you can try first.</p>
+<h2 id="the-starter-kit-the-150-plan">The starter kit (the $150 plan)</h2>
+<p>Rounded numbers, deliberately:</p>
+<table><thead><tr><th>Item</th><th>New price, roughly</th><th>Free or cheaper version</th></tr></thead><tbody><tr><td>10x10 canopy with sides</td><td>about $80-$120</td><td>Borrow one; buy used; share with a neighbor event</td></tr><tr><td>6-foot folding table</td><td>about $40-$60</td><td>Supply often available: many events rent tables for $5-$10</td></tr><tr><td>Table cloth + skirt</td><td>about $15-$30</td><td>A flat bed sheet (queen) + clothespins</td></tr><tr><td>Folding chair</td><td>about $15</td><td>Borrow; most events have a rental chair line</td></tr><tr><td>2 crates or risers</td><td>about $0-$20</td><td>Milk crates, wooden boxes, suitcases, apple boxes</td></tr><tr><td>Weights for the canopy</td><td>about $10-$30</td><td>4-gallon water jugs; sand-filled paint cans; bungee bag</td></tr><tr><td>Cash box or apron</td><td>about $10-$25</td><td>A tackle box; a money belt; or the money kit below</td></tr><tr><td>Cards/sign/banner</td><td>about $10-$20</td><td>Hand-lettered poster; a print-shop banner on a budget</td></tr><tr><td>Rewritable price signs</td><td>free</td><td>Index cards + sleeve</td></tr><tr><td><strong>Total, new</strong></td><td><strong>roughly $180-$250</strong></td><td><strong>Shared/borrowed: often under $100</strong></td></tr></tbody></table>
+<p>The exact number matters less than the truth it encodes: <strong>you get setup-grade equipment first and pretty-grade equipment never</strong>, until your <a href="06-honest-sales-tracking.html">records</a> prove which events earn the upgrade.</p>
+<h2 id="the-ten-foot-rule">The ten-foot rule</h2>
+<p>Your booth is read from ten feet away. That's where the decision to walk over happens — most browsers ping-pong: from ten feet, do they see <em>what it is</em>, <em>what it costs</em>, and <em>is the vendor weird</em> (answer: no)?</p>
+<ul>
+<li><strong>One message, ten feet tall or ten feet wide.</strong> One clear thing: a big-word sign ("HAND-POURED SOAPS, $6"), neatly spaced product rows, color. Stop trying to be interesting from ten feet; be <em>understood</em>.</li>
+<li><strong>Prices visible from four feet.</strong> Every item or row has a price. Browsers who can't see prices <em>skip the booth</em> rather than ask.</li>
+<li><strong>One hero display at eye level.</strong> Your best seller goes on a riser at about chest height, lit if possible, plentiful in stock.</li>
+<li><strong>Vertical beats flat.</strong> A flat table shows 6 columns of stuff. A table + two stacked crates + one suitcase asleep on top shows <em>twice as much at half the squared floor</em> — and looks intentional. (The vocabulary — <a href="glossary.html">risers</a>, skirts, hero displays — is all in the <a href="glossary.html">Glossary</a>.)</li>
+</ul>
+<h2 id="the-layout-that-keeps-working">The layout that keeps working</h2>
+<p>Ten feet by ten. Keep the front edge busy, the back edge for storage.</p>
+<pre><code>                canopy 10 x 10 (back = storage)
+   +---------------------------------------------+
+   | back: tote boxes, stock bins, water, coats  |
+   |                                             |
+   |   riser  ~  eye-level hero (best seller)    |
+   |                                             |
+   |   table(s): flat rows, price tags visible   |
+   |                                             |
+   |   front:  near  =  demo item or samples
+   |             side of table = card reader     |
+   +---------------------------------------------+
+        opening = where you sit/stand, facing out
+</code></pre>
+<ul>
+<li><strong>Own table or rented table, same rules:</strong> cloth to the ground (it hides the chair, the cash box, the totes, your handbag), rows in odd numbers, one empty "talk to me" space where you can put your hands.</li>
+<li><strong>The money spot:</strong> the card reader and cash box live <em>on your side of the table line</em>, in reach but not in the walkway. Never on the customer's side; never in the open; never left on the table while you stretch legs.</li>
+<li><strong>Stay out of the walkway.</strong> Your toes, your chair, your bins don't cross the front-of-booth line. The aisle is the organizer's property; the traffic is everyone's livelihood.</li>
+<li><strong>Samples belong to the low front ledge</strong>, where hands happen without stretching.</li>
+</ul>
+<h2 id="load-in-the-two-tote-system">Load-in: the two-tote system</h2>
+<p>Load-in is where booths live or die. The packing principle is the whole game: <strong>everything comes in two totes and one hand-pulled wagon</strong>, in the order you'll need it:</p>
+<ol>
+<li><strong>Tote 1: Structure.</strong> Canopy (with its weights bungee-bagged to its frame, never carried in a separate sprint), table, chair. If you arrive and the canopy is <em>not</em> first out of the car, you are doing load-in on hard mode.</li>
+<li><strong>Tote 2: Contents.</strong> Cloth, crates, products by category, signage, cash kit, card reader, the <a href="packing-checklist.html">packing checklist</a> printed in the lid.</li>
+</ol>
+<p>The wagon belongs to Tote 2's destination, then returns for Tote 1 or the boxes behind it. Two trips, calmly, beats four sprints, and it needs the parking lot to be close — which rounds out why <a href="01-finding-events.html">organizer questions</a> ask about parking and load-in distances.</p>
+<p>Set up in this order: <strong>canopy, weights, table, cloth, then product, then signage, then money kit.</strong> Product before canopy is the classic 6 a.m.'s regret when rain arrives.</p>
+<h2 id="the-extras-that-earn-their-space">The extras that earn their space</h2>
+<p>Cheap, small, and they pay for themselves in ONE event:</p>
+<ul>
+<li><strong>Battery bank + clip fan</strong> (heat) or <strong>hand warmers</strong> (cold).</li>
+<li><strong>Trash bag</strong> (yours) — you will have one and only one, and this will be the day you need it.</li>
+<li><strong>Paper towels and wipes</strong> — glue, balm-breaker, spilled candle-adjacent tragedy, a nose. One zip pouch.</li>
+<li><strong>Pens, sharpie, tape, safety pins, scissors</strong> — the repair kit. Banners tear; straps snap; you will fix it in 30 seconds rather than mourn it for 6 hours.</li>
+<li><strong>A change apron or fanny pack</strong> — see <a href="04-pricing-and-making-change.html">Pricing and making change</a> for why money <em>lives on your body</em>, not left out on a table.</li>
+<li><strong>Business cards or tags with your handle</strong>, so browsers can find you online later. Cheap and worth it — this is the in-person counterpart to the reseller book's "honest listing" idea: you, at eye contact, one line.</li>
+</ul>
+<h2 id="canopy-weights-the-only-non-optional-extra">Canopy weights (the only non-optional "extra")</h2>
+<p>Canopies tip in surprisingly small wind gusts, and they tip <em>over customers, children, and ceramics</em>. Every canopy needs real weight at each of the four legs — about 40 pounds per leg is the usual shout; ask your event or your neighbor market. Filled water jugs (4 gallons, about 33 pounds each) bungee-bagged to the frame work; purpose-made canopy weights work; sand-filled paint cans work; <em>thin stakes into your neighbor's tent wall</em> doesn't. Ask the organizer too: some venues (especially indoor halls and some fields) don't allow stakes at all. Put the weights on <strong>at set-up, before anything else exists</strong>, in any breeze that can be felt.</p>
+<h2 id="photos-for-the-application">Photos for the application</h2>
+<p>Remember <a href="02-applications-and-permits.html">the applications chapter</a> asked for photos of <em>your booth</em>. Photo it once, properly, at home:</p>
+<ol>
+<li>Set the actual display up in your garage/living room.</li>
+<li>Stand where the customer stands; take a <strong>straight-on</strong> photo and a 3/4-angle photo.</li>
+<li>Take one close-up of the product rows, and one of the front sign.</li>
+</ol>
+<p>Four photos, ten minutes, reusable for every application you'll file this year. Keep them in one folder named <code>booth-photos</code>, and you'll never leave an application half-filled for a week again.</p>
+<h2 id="when-to-upgrade-and-what-first">When to upgrade (and what first)</h2>
+<p>Upgrade in this order, and only when the data agrees:</p>
+<ol>
+<li><strong>Lighting</strong> (a battery-charged clip light per riser) — for anything indoor.</li>
+<li><strong>A second table or a proper cart</strong> — when you reliably sell two categories.</li>
+<li><strong>Proper canopy walls</strong> — for weather and brand presence in equal measure.</li>
+<li><strong>A banner with your logo</strong> — only after your booth has stopped changing shape; a banner is freezing the layout <em>into</em> fabric.</li>
+<li><strong>Anything pretty before anything functional</strong> — last, always.</li>
+</ol>
+<p>The rule: <strong>a $45 upgrade is earned by one event that would have paid for it.</strong> If you can't name that event, it isn't earned yet — and no, "<a href="01-finding-events.html">everyone else has those string lights</a>" is not data. Your <a href="event-scorecards.html">scorecard</a> is.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="02-applications-and-permits.html"><span class="dir">Previous</span>Applications &amp; Permits</a>
+      <a class="next" href="04-pricing-and-making-change.html"><span class="dir">Next</span>Pricing &amp; Change</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding the Right Events — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="active" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="finding-the-right-events">Finding the Right Events</h1>
+<p>Event quality determines everything downstream: your sales, your sanity, your booth layout, even your paperwork. This chapter teaches you to pick markets the way you'd pick a restaurant — look at who's already in line, skip the places with no line and a big sign.</p>
+<h2 id="the-four-kinds-of-events-and-what-they-cost-roughly">The four kinds of events (and what they cost, roughly)</h2>
+<table><thead><tr><th>Event type</th><th>Typical vibe</th><th>Booth cost, rounded</th><th>First-timer?</th></tr></thead><tbody><tr><td>Farmers market</td><td>Weekly, food-heavy, regulars</td><td>Free to about $25/week</td><td>Great start</td></tr><tr><td>Vendor/craft fair</td><td>One-day, community-run</td><td>About $25-$75</td><td>Great start</td></tr><tr><td>Holiday market</td><td>Seasonal, gift-buyers</td><td>About $50-$200</td><td>Good second or third event</td></tr><tr><td>Convention/expo</td><td>Two+ days, themed, far away</td><td>About $150-$600</td><td>Graduate level</td></tr></tbody></table>
+<p>Round numbers only — real fees vary hugely by city, table size, and whether electricity is included. The point of the table is the <em>shape</em>: weekly markets are cheap and forgiving; conventions are expensive and demand real restock (see <a href="07-restock-math.html">Restock math</a> for how much more stock a two-day show eats).</p>
+<h2 id="the-five-question-event-test">The five-question event test</h2>
+<p>Before you pay any fee, you should be able to answer these five questions. If three or more are "no idea," you're not ready to apply — you're ready to scout.</p>
+<ol>
+<li><strong>Who shops here?</strong> Not "lots of people" — <em>which</em> people. Gift-buyers? handmade hunters? Parents? Collectors? Your products need to match the crowd, not just the fair.</li>
+<li><strong>What does it cost all-in?</strong> Booth fee + table rental + electricity + parking + website-to-print permit costs + lunch. A $75 booth with $40 of extras is a $115 event.</li>
+<li><strong>What did last year look like?</strong> Organizers who can't or won't tell you attendance counts, layout plans, or vendor return rates are telling you something.</li>
+<li><strong>Does the event promise fit my workload?</strong> A 10-hour Saturday market with 4 a.m. load-in is a different job than a 3-hour evening show.</li>
+<li><strong>What do I want from it?</strong> Some events are for money. Some are for contacts, photos, portfolio, tests of a new product line. Name your goal <em>before</em> the event, or you'll review it badly later.</li>
+</ol>
+<h2 id="scouting-the-free-visit">Scouting: the free visit</h2>
+<p>Your cheapest research tool is your own feet, applied on a Saturday. Visit a market <em>as a shopper first</em> and walk it with the <a href="event-scorecards.html">event scorecard</a> in your pocket:</p>
+<ul>
+<li><strong>Count the tables.</strong> Ten vendors is a quiet show; two hundred is a destination. Count aisles, count people per aisle, count people <em>carrying bags</em> (carriers buy).</li>
+<li><strong>Watch for money hands.</strong> Are buyers walking out with items? Watch three sellers for five minutes each: are they talking to browsers or to each other?</li>
+<li><strong>Notice what sells.</strong> Crowds cluster around booths with: visible prices, hands-on demonstrations, and clearly labeled one-thing-per-row tables. Crowds <em>skim</em> booths with no prices ("hmm, do I have to ask?").</li>
+<li><strong>Talk to three vendors on their break.</strong> Most will tell you: how's traffic, what's the fee, would you return? Ask the <em>biggest</em> booth and the <em>smallest</em> — they experience this market differently.</li>
+<li><strong>Take photos of anything that catches you.</strong> Colors, layouts, ideas you'd steal honestly later.</li>
+</ul>
+<p>The scorecard page has a printable version of all this — a <strong>pre-event scorecard</strong> you can fill in at the fair with a pencil.</p>
+<h2 id="questions-to-ask-the-organizer-before-you-pay">Questions to ask the organizer (before you pay)</h2>
+<p>Organizers expect these questions, and good organizers answer them cheerfully. Ask for:</p>
+<ol>
+<li><strong>Is electricity available, and does it cost extra?</strong></li>
+<li><strong>Is the show indoors, outdoors, or covered — and what's the weather rule if it rains?</strong> (Do vendors get refunds, free next-year fees, or nothing?)</li>
+<li><strong>What's the load-in time and parking situation?</strong></li>
+<li><strong>Are tables and chairs provided or rented?</strong></li>
+<li><strong>Are you jurying applications?</strong> (Some events hand-pick their mix of vendors to avoid ten candle tables.)</li>
+<li><strong>Is there a waitlist, and have returning vendors already taken the good spots?</strong></li>
+<li><strong>What paperwork do you require from me?</strong> (See the <a href="02-applications-and-permits.html">permits chapter</a> — this question is a feature, not a bug, and it makes you sound professional. If they answer with words like "jury," "load-in," or "COI," the <a href="glossary.html">Glossary</a> decodes them.)</li>
+</ol>
+<h2 id="event-red-flags">Event red flags</h2>
+<p>Some "events" are scams wearing an event costume. Walk away from:</p>
+<ul>
+<li><strong>Upfront "vendor kits" or mandatory purchases.</strong> Pay-to-be-in-Lineup plus "here's the exact signage you must buy from <em>us</em>" is a real scam pattern.</li>
+<li><strong>No public evidence of past years.</strong> No photos from last year, no press, no reviews from previous vendors. An event that's brand new is fine to <em>watch</em>, not fine to <em>fund</em>.</li>
+<li><strong>Payment requests by cash app or prepaid card</strong> to "reserve your spot." Legitimate events take checks, direct forms, or standard payment methods, and they can't be resold to you mid-conversation.</li>
+<li><strong>Overpayment tricks.</strong> Anyone sending you a check for too much and asking you to refund the difference is a scammer. Cut it. It's the same fake-check bounce mechanism the reseller book warns about: their check shows bogus funds in your account, then bounces, after you already handed over the "refund."</li>
+<li><strong>Pressure.</strong> "Last spot! Pay now!" messages at 9 p.m. Real event deadlines are calm and posted.</li>
+</ul>
+<h2 id="start-small-on-purpose">Start small on purpose</h2>
+<p>Your first event should be:</p>
+<ul>
+<li><strong>One day.</strong> Two-day shows take two-day restocks, two sleep cycles, and two-day weather risk.</li>
+<li><strong>Cheap.</strong> A $25 table at a farmers market teaches you what a $400 art-fair booth would: pricing, change-making, display strength, your feet wearing out. No shame — that's how everyone starts.</li>
+<li><strong>Close.</strong> Within an hour's drive. You want to be able to go home and grab that thing you forgot, and you will forget something (see the <a href="packing-checklist.html">packing checklist</a>, and check it the night before).</li>
+<li><strong>Small stakes.</strong> A first event that breaks even after fees is a <em>successful</em> first event if it also taught you what your booth actually needs.</li>
+</ul>
+<h2 id="the-event-calendar-rhythm">The event calendar rhythm</h2>
+<p>Most regions have a predictable season:</p>
+<ul>
+<li><strong>Spring</strong>: garden shows, spring festivals, Mother's Day markets.</li>
+<li><strong>Summer</strong>: weekly farmers markets, street fairs, county fairs.</li>
+<li><strong>Fall</strong>: harvest shows, back-to-school vendor nights.</li>
+<li><strong>Holiday season</strong>: the big one — November and December markets are where gift-buyers congregate and budgets are warm.</li>
+</ul>
+<p>Recurring markets (weekly or monthly) are <em>lifeboats</em>: same organizer, same table, regular customers who get to know you. One-offs are <em>excursions</em>: higher highs, lower lows. A healthy year mixes both — maybe one recurring market that reliably pays for itself, plus four to six one-day excursions that test new products and neighborhoods.</p>
+<p>Your fifth event doesn't have to be your fifth <em>kind</em> of event. When a market works, book it again next season with the same setup and a life less spent on load-in panic.</p>
+<h2 id="where-the-reseller-handbook-fits-here">Where the reseller handbook fits here</h2>
+<p>If you have leftover stock from this book's events, the <strong>Side-Hustle Reseller Handbook</strong> is exactly where it goes: photograph it, list it online, clear your shelf politely. The two books together make a complete small-business circuit — in-person for discovery and momentum, online for cleanup and scale. No duplication, no guilt.</p>
+<hr>
+<p>Next up: you picked the event. Now — the application form, and the paperwork question everyone dreads. Spoiler: it's friendlier in person than it looks in a search result, and <a href="02-applications-and-permits.html">the next chapter</a> will prove it.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="index.html"><span class="dir">Previous</span>Start Here</a>
+      <a class="next" href="02-applications-and-permits.html"><span class="dir">Next</span>Applications &amp; Permits</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

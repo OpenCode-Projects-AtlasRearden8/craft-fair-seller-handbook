@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Readers, Calmly — The Craft-Fair Seller Handbook</title>
+<style>
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --ink: #2b2823;
+  --muted: #776e62;
+  --accent: #b3541e;
+  --accent-soft: #f7e8dc;
+  --line: #e8ddcf;
+  --code-bg: #f4efe6;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #231b12;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #38291d;
+  color: #f4ede4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #7a3a10; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Craft-Fair Seller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-finding-events.html">Finding Events</a></li><li><a class="" href="02-applications-and-permits.html">Applications &amp; Permits</a></li><li><a class="" href="03-booth-setup-on-a-budget.html">Booth on a Budget</a></li><li><a class="" href="04-pricing-and-making-change.html">Pricing &amp; Change</a></li><li><a class="active" href="05-card-readers.html">Card Readers</a></li><li><a class="" href="06-honest-sales-tracking.html">Sales Tracking</a></li><li><a class="" href="07-restock-math.html">Restock Math</a></li><li><a class="" href="08-slow-days-and-weather.html">Slow Days &amp; Weather</a></li><li><a class="" href="09-after-event-review.html">After-Event Review</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="event-scorecards.html">Event Scorecards</a></li><li><a class="" href="packing-checklist.html">Packing Checklist</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="card-readers-calmly">Card Readers, Calmly</h1>
+<p>Taking cards is the modern market default — most buyers under fifty don't carry cash at all, and even cash-buyers get nervous when your only answer is "ooh, I think I have change." This chapter gets you a reader you've rehearsed, a fee you understand in round numbers, and an offline plan that won't strand a sale.</p>
+<h2 id="the-reader-landscape-in-one-table">The reader landscape, in one table</h2>
+<p>App-based card readers (the little dongle or standalone terminal that pairs with a phone app) differ in details but share a shape. Round numbers, verified at signing-up time because these move:</p>
+<table><thead><tr><th>Thing</th><th>The usual rounded shape</th></tr></thead><tbody><tr><td>Per-transaction rate</td><td><strong>about 2.7% + 10 cents</strong>, or a flat <strong>$0.15-$0.30</strong> on some plans</td></tr><tr><td>Card-present vs keyed-in</td><td>Keyed-in premiums: often <strong>3.5% + 15 cents</strong> — don't key in what you can tap</td></tr><tr><td>Hardware cost</td><td>A basic contactless reader: <strong>$0-$60</strong> at most big providers</td></tr><tr><td>Payout speed</td><td><strong>1-2 business days</strong> standard; instant exists but charges a cut</td></tr><tr><td>Receipt</td><td>Emailed or texted; paper receipt optional on most apps</td></tr></tbody></table>
+<p>(The reseller handbook's fee chapter says marketplace fees run 13-15% of everything; a card reader's effective <strong>2.7%</strong> is the in-person bargain that partially makes up for the booth fee. Not advice, just the landscape — and it's <em>your</em> job to check the current published rate before you sign up: providers change these numbers.)</p>
+<h2 id="choosing-three-questions-answered-honestly">Choosing: three questions, answered honestly</h2>
+<ol>
+<li><strong>Do you need a phone for it to work?</strong> Most app-based readers <em>are</em> your phone + a dongle. A standalone terminal works without a phone but costs more. First market: phone + dongle is fine.</li>
+<li><strong>Does it accept tap, chip, and swipe?</strong> Tap is how most customers will actually pay; chip covers the rest; swipes (the classic magnetic strip) are now mostly a fallback. Get all three if the price is close.</li>
+<li><strong>Where does the money land?</strong> Your app will want a bank account (business account if you have an LLC name on your permit — same <a href="02-applications-and-permits.html">name-matching discipline</a> as everywhere else). Settlement speed matters far less than you'd think; the <a href="06-honest-sales-tracking.html">tracking chapter</a> records <em>when sales happened</em>, and the app's own "Payouts" page tells you when they cleared.</li>
+</ol>
+<p>Don't agonize. Any mainstream provider works. The difference between choosing in one evening and choosing in two weeks is roughly zero.</p>
+<h2 id="the-kitchen-table-dry-run-do-this-the-thursday-before">The kitchen-table dry run (do this the Thursday before)</h2>
+<p>The difference between a calm first sale and a fumbling one is ten minutes of rehearsal at home, before anyone is watching:</p>
+<ul class="checklist">
+<li>&#9744; Charge the reader fully. Charge the phone fully.</li>
+<li>&#9744; Pair the reader to the app; confirm Bluetooth-on timing.</li>
+<li>&#9744; Set up one product in the app's catalog — <strong>name, price, and a photo</strong> — so the sale is one tap, not five.</li>
+<li>&#9744; Do a <strong>real test transaction</strong> on your own card: one $1 item, from your own phone, on your own reader. Then refund it from the app, and <em>watch the refund land</em>. (Most providers return test-charge fees to you; check yours.)</li>
+<li>&#9744; Set your receipt behavior: SMS-or-email, tips on or off, sales tax on or off, per your <a href="02-applications-and-permits.html">permits answers</a>.</li>
+<li>&#9744; Turn on <strong>app unlock</strong> (PIN/biometrics) — this app is a bank branch in your pocket.</li>
+<li>&#9744; Write the <strong>support phone number</strong> on the back of your <a href="packing-checklist.html">money kit card</a>. You won't need it (probably), and 6 a.m. Friday morning's you doesn't want to search for it.</li>
+</ul>
+<p>Repeat the test charge once per season, or whenever the app updates itself. Apps update.</p>
+<h2 id="at-the-booth-the-tap-flow">At the booth: the tap flow</h2>
+<p>The good news: your side of the flow is three steps.</p>
+<ol>
+<li><strong>Say the total aloud.</strong> "$18 — card or cash is fine." (The <a href="04-pricing-and-making-change.html">two-hop dance</a> applies to the cash lane only.)</li>
+<li><strong>Enter or tap the amount on the app.</strong> If the item is in your catalog, it's one tap and the price is right; if you type, type with the item held up as a reference.</li>
+<li><strong>Hand the reader toward the customer, screen toward them.</strong> Tap on top, chip in the bottom slot, and say "go ahead whenever you're ready." Don't hover; the tap takes two seconds and anxiety doesn't speed it up.</li>
+</ol>
+<p>Then the app asks them to tip (if you enabled tips), asks for a receipt, and shows a big green check. <strong>Say the amount out loud again as the reader confirms it.</strong> This is the honest-close of the sale: "$18 — all set, receipt to your phone?" Nothing has happened in the digital dark; everyone heard the number twice.</p>
+<h2 id="tips-on-or-off">Tips on or off?</h2>
+<p>Around food and service, tips are normal. Around craft and retail, it's genuinely a judgment call, and there's no rule. Tips ON tends to fit makers (people want to add a dollar for handmade work); tips OFF keeps the screen from asking awkward questions. The right answer is <em>consistent</em> — pick per season, note it in the <a href="06-honest-sales-tracking.html">tracking sheet</a>, and stop re-deciding every Saturday.</p>
+<h2 id="refunds-simply">Refunds, simply</h2>
+<p>Someone will want a refund — the candle smells different in their kitchen, the hat fits differently than it did under the canopy. The app does it in about ten seconds: find the payment, tap <strong>Refund</strong>, full or partial. Refunds from the app are the honest, audit-clean, no-parallel-PayPal-conversation way. What refunding does to your numbers: sales sheet shows the sale, reviews show the refund, the <a href="09-after-event-review.html">after-event review</a> reads both. Refund fees are usually <em>not</em> returned by providers — figure the reader fee (already spent) is gone, so write your refund policy with the same kindness you'd want standing in front of your booth.</p>
+<h2 id="when-theres-no-signal-the-offline-plan">When there's no signal (the offline plan)</h2>
+<p>Outdoor events can have <em>awful</em> cell coverage. Your plan, in order:</p>
+<ol>
+<li><strong>Phone on Wi-Fi where the venue offers it</strong> — ask the organizer; most do, and coverage is spotty-but-real.</li>
+<li><strong>Reader on its own data path if it has one</strong> (some standalone terminals carry LTE).</li>
+<li><strong>Offline mode + QR fallback</strong>: most major apps can either queue offline charges (they settle when signal returns — <em>risky</em>, see below) or show a <strong>QR code</strong> the customer scans with their own bank/phone-known payment app. The QR is the safer fallback.</li>
+<li><strong>The honest card-on-paper lane</strong>: some vendors keep a paper <em>manual-imprint</em> form or a "pre-approved charge" form — this is the <em>least</em> good idea on this page; keyed-in rates and chargeback risk unless you truly know what you're signing. Treat this like cash-in-envelope: rare, documented, only with a signature, only when nothing else works.</li>
+<li><strong>Cash and a sign</strong>: "CASH PREFERRED, card works when it works" with a smile removes 90% of dead-zone awkwardness. Nobody argues with honest service messaging.</li>
+</ol>
+<p>The <strong>offline queue is risky and only for people who understand what "offline" means</strong> on their specific app: the charge is recorded on your device and pushed later — if the customer's card is declined <em>then</em>, you've given them the product and won't collect. Understand your app's exact offline behavior from its own documentation before the first event, not from memory on the day. If you can't find it, ask the provider's support line — the number you wrote on the <a href="packing-checklist.html">money kit card</a>.</p>
+<h2 id="the-battery-bank-this-chapters-physical-gear">The battery bank (this chapter's physical gear)</h2>
+<p>One charged reader, one charged phone, one battery bank — this trio is non-negotiable, the market equivalent of tent stakes. A 10,000 mAh battery bank charges a phone about two times over, handling a day of reader use for under $25. It lives behind the cash box, its cable bungeed so it can't walk off, and the <a href="packing-checklist.html">packing checklist</a> is where you sign off on all three the night before.</p>
+<h2 id="the-days-close-on-the-card-side">The day's close on the card side</h2>
+<p>The app's end-of-day count is faster than counting the cash box:</p>
+<ol>
+<li><strong>Sales</strong>: match the app's day total to your <a href="06-honest-sales-tracking.html">tracking sheet</a> line for cards.</li>
+<li><strong>Payouts page</strong>: confirm when the money lands (1-2 business days, in round numbers).</li>
+<li><strong>Fees</strong>: the app shows its own total; subtract it in the sheet's fee column, so your <a href="06-honest-sales-tracking.html">records</a> stay honest to the cent.</li>
+</ol>
+<p>If the app total and your sheet disagree, the sheet is <em>also right</em> in one useful way: you know what you <em>thought</em> happened. The difference between the two numbers is your own <a href="glossary.html">over/short</a> lesson for the day — and log it in the sheet whether it favors you or not.</p>
+<hr>
+<p>Next up: you have prices, a reader, and a float. Now: what gets written down, and how to keep it honest.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="04-pricing-and-making-change.html"><span class="dir">Previous</span>Pricing &amp; Change</a>
+      <a class="next" href="06-honest-sales-tracking.html"><span class="dir">Next</span>Sales Tracking</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Craft-Fair Seller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>
